@@ -70,6 +70,7 @@ public class SplashScreenActivity extends AppCompatActivity implements GoogleApi
         }
         else {
             changeLanguage("en");
+            String abc = "";
         }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);

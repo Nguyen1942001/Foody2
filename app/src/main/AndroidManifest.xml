@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Foody2"
+        tools:targetApi="31">
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBscNLN_gr9suCZlvzdSmJQ1_ugYUQrjfY" />
+
+
+        <activity
+            android:name=".View.SplashScreenActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".View.DangNhapActivity" />
+
+        <activity android:name=".View.DangNhapSDTActivity" />
+
+        <activity android:name=".View.TrangChuActivity" android:exported="true">
+
+        </activity>
+
+        <activity android:name=".View.DangKyActivity" android:exported="true">
+
+        </activity>
+
+        <activity android:name=".View.KhoiPhucMatKhauActivity" />
+
+        <activity android:name=".View.ChiTietQuanAnActivity"/>
+
+        <activity android:name=".View.HienThiChiTietBinhLuanActivity" />
+
+        <activity android:name=".View.CapNhatDanhSachWifiActivity" />
+
+        <activity android:name=".View.PopupCapNhatWifiActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"/>
+
+        <activity android:name=".View.BinhLuanActivity" android:exported="true">
+
+        </activity>
+
+        <activity android:name=".View.ChonHinhBinhLuanActivity" android:exported="true">
+
+        </activity>
+
+        <activity android:name=".View.DatMonActivity">
+
+        </activity>
+
+        <activity android:name=".View.ThemQuanAnActivity" android:exported="true">
+
+        </activity>
+
+    </application>
+
+</manifest>

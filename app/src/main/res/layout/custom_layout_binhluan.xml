@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/containerBinhLuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageUser"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="6.8"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_margin="5dp"
+            android:src="@drawable/background"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            >
+
+            <TextView
+                android:id="@+id/txtTieuDeBinhLuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tiêu đề bình luận"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/txtNoiDungBinhLuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nội dung bình luận"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtChamDiemBinhLuan"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="8.6" />
+
+    </LinearLayout>
+
+<!--  custom_layout_hinhbinhluan  -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerHinhBinhLuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

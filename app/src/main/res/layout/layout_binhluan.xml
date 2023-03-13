@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_700"
+        >
+
+        <TextView
+            android:id="@+id/txtTieuDe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vietbinhluan"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/txtDangBinhLuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="5dp"
+            android:text="@string/dang"
+            android:textColor="@color/white"
+            android:padding="5dp"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackgroundTrangChu"
+        android:orientation="vertical"
+        android:padding="5dp"
+        >
+
+        <TextView
+            android:id="@+id/txtTenQuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên quán ăn"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/txtDiaChi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ quán ăn"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+    
+    <EditText
+        android:id="@+id/edTieuDeBinhLuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/tieudebinhluan"
+        android:textSize="12sp"
+        />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorBackgroundTrangChu"
+        />
+
+    <EditText
+        android:id="@+id/edNoiDungBinhLuan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="@string/noidungbinhluan"
+        android:textSize="12sp"
+        android:gravity="top"
+        android:layout_weight="1"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:rating="5"
+            android:progressTint="#FFFF00"
+            android:progressBackgroundTint="#808080"
+            />
+
+    </LinearLayout>
+
+
+
+    <!--  Load những tấm hình được chọn  -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerChonHinhBinhLuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorBackgroundTrangChu"
+        >
+        
+        <ImageButton
+            android:id="@+id/btnChonHinh"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/camera"
+            android:layout_weight="1"
+            android:background="@color/colorBackgroundTrangChu"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

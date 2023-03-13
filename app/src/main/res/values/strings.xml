@@ -1,0 +1,155 @@
+<resources>
+    <string name="facebook_app_id">5628755180583782</string>
+    <string name="fb_login_protocol_scheme">fb5628755180583782</string>
+    <string name="facebook_client_token">767f10da506e226e210a09619088229a</string>
+
+
+<!--  Splash Screen  -->
+    <string name="app_name">Foody2</string>
+    <string name="phienban">Phiên bản</string>
+    <string name="dangtai">Đang tải....</string>
+    <string name="tencongty">Nhóm 10 Android</string>
+
+<!--  Trang đăng nhập  -->
+    <string name="email">Email</string>
+    <string name="matkhau">Mật Khẩu</string>
+    <string name="dangnhap">Đăng nhập</string>
+    <string name="hoac">Hoặc</string>
+    <string name="dangnhapgoogle">Đăng nhập bằng google</string>
+    <string name="dangnhapfacebook">Đăng nhập bằng facebook</string>
+    <string name="dangnhapsdt">Đăng nhập số điện thoại</string>
+    <string name="quenmatkhau">Quên mật khẩu ?</string>
+    <string name="dangkymoi"><u>Đăng ký mới</u></string>
+    <string name="thongbaodangnhapthatbai">Tài khoản hoặc mật khẩu không hợp lệ</string>
+    <string name="yeucauxacthucemail">Vui lòng xác thực email trước khi đăng nhập</string>
+
+<!--  Trang đăng nhập bằng số điện thoại  -->
+    <string name="yeucaunhapsdtdangnhap">Hãy nhập số điện thoại muốn đăng nhập</string>
+    <string name="sodtdadangky">Số điện thoại này đã được đăng ký</string>
+
+<!--  Trang đăng ký  -->
+    <string name="nhaplaimatkhau">Nhập lại mật khẩu</string>
+    <string name="dangky">Đăng ký</string>
+    <string name="hoten">Họ tên</string>
+    <string name="dangkysdt">Đăng ký bằng số điện thoại</string>
+    <string name="thongbaoloidangky">Bạn hãy nhập đầy đủ thông tin</string>
+    <string name="thongbaonhaplaimatkhau">Vui lòng nhập giống mật khẩu ở trên</string>
+    <string name="guiemailxacthuc">Gửi email xác thực thành công</string>
+    <string name="taikhoantontai">Tài khoản này đã tồn tại</string>
+    <string name="sdtdalienket">Số điện thoại này đã được liên kết</string>
+    <string name="dangxuly">Đang xử lý</string>
+
+<!--  Trang đăng ký bằng số điện thoại  -->
+    <string name="yeucaunhapsdt">Hãy nhập số điện thoại muốn đăng ký</string>
+
+<!--  Quên mật khẩu  -->
+    <string name="sodienthoai">Số điện thoại</string>
+    <string name="khoiphucmatkhau">Khôi phục mật khẩu</string>
+    <string name="chuoikhoiphucmatkhau">Bạn vui lòng nhập địa chỉ email hoặc số điện thoại vào khung bên dưới để khôi phục mật khẩu</string>
+    <string name="guimail">Gửi mail</string>
+    <string name="guiotp">Gửi mã OTP</string>
+    <string name="yeucausdt">Hãy nhập số điện thoại muốn khôi phục mật khẩu</string>
+    <string name="chuoithanhvien">Bạn không phải là thành viên ?</string>
+    <string name="thongbaoemailkhonghople">Email không hợp lệ</string>
+    <string name="thongbaoguimailthanhcong">Gửi email thành công !</string>
+    <string name="yeucaunhapthongtin">Vui lòng nhập đầy đủ mật khẩu mới và xác nhận mật khẩu mới</string>
+    <string name="xacnhanmatkhaumoikhongdung">Xác nhận mật khẩu mới không đúng</string>
+    <string name="khoiphucmatkhauthanhcong">Khôi phục mật khẩu thành công</string>
+
+
+    <!--  Trang xác thực OTP  -->
+    <string name="xacthucotp">Xác thực OTP</string>
+    <string name="chuoixacthucotp">Bạn vui lòng nhập mã OTP được gửi tới điện thoại bạn vào ô bên dưới</string>
+    <string name="nhapmaotp">Nhập mã OTP</string>
+    <string name="guilaiotp">Gửi lại mã OTP</string>
+    <string name="yeucaunhapotp">Vui lòng nhập mã OTP</string>
+
+<!--  Nhập mật khẩu mới (khi quên mật khẩu - otp)  -->
+    <string name="matkhaumoi">Mật khẩu mới</string>
+    <string name="nhaplaimatkhaumoi">Nhập lại mật khẩu mới</string>
+    <string name="xacnhan">Xác nhận</string>
+    <string name="matkhau6kytu">Vui lòng nhập mật khẩu ít nhất 6 ký tự</string>
+
+<!--  Trang chủ  -->
+    <string name="odau">Ở đâu</string>
+    <string name="angi">Ăn gì</string>
+    <string name="moinhat">Mới nhất</string>
+    <string name="danhmuc">Danh mục</string>
+    <string name="khuvuc">HCM</string>
+    <string name="gantoi">Gần tôi</string>
+    <string name="giaohang">Giao hàng</string>
+    <string name="gameandfun">Game and Fun</string>
+    <string name="danhgia">Đánh giá</string>
+    <string name="blog">Blogs</string>
+    <string name="topmember">Top Thành Viên</string>
+
+<!--  Trang chủ -> Ở đâu  -->
+    <string name="datmon">Đặt món</string>
+    
+<!--  Trang chủ -> Ăn gì  -->
+    <string name="thongbaoangi">Tính năng đang được phát triển</string>
+
+<!--  Chi tiết quán ăn  -->
+    <string name="taianh">Tải ảnh</string>
+    <string name="binhluan">Bình luận</string>
+    <string name="checkin">Check-in</string>
+    <string name="luulai">Lưu lại</string>
+    <string name="chiase">Chia sẻ</string>
+    <string name="dangmocua">Đang mở cửa</string>
+    <string name="dadongcua">Đã đóng cửa</string>
+    
+<!--  Cập nhật wifi (danh sách wifi)  -->
+    <string name="capnhatwifi">Cập nhật Wifi</string>
+    <string name="nhaptenwifi">Nhập tên wifi</string>
+    <string name="nhapmatkhauwifi">Nhập mật khẩu wifi</string>
+    <string name="dongy">Đồng ý</string>
+    <string name="loithemwifi">Vui lòng nhập đầy đủ thông tin wifi</string>
+    <string name="themthanhcong">Thêm thành công</string>
+    
+<!--  Trang bình luận  -->
+    <string name="vietbinhluan">Viết bình luận</string>
+    <string name="dang">Đăng</string>
+    <string name="tieudebinhluan">Tiêu đề (không bắt buộc)</string>
+    <string name="noidungbinhluan">Nhập bình luận chính xác nhất về quán ăn</string>
+    <string name="binhluanthanhcong">Đăng bình luận thành công</string>
+
+<!--  Chọn hình bình luận  -->
+    <string name="xong">Xong</string>
+
+<!--  Phần thực đơn, món ăn (trong layout_main_chitietquanan)  -->
+    <string name="thucdon">Thực đơn</string>
+
+<!--  Trang đặt món  -->
+    <string name="guiden">Gửi đến</string>
+    <string name="diachi">Nhập địa chỉ nhận hàng</string>
+    <string name="giaongay">Giao ngay hôm nay</string>
+    <string name="tongsosanpham">Tổng số sản phẩm:</string>
+    <string name="phigiaohang">Phí giao hàng</string>
+    <string name="mienphi">Miễn phí</string>
+    <string name="phidichvu">Phí dịch vụ</string>
+    <string name="tongcong">Tổng cộng</string>
+    <string name="tienmat">Tiền mặt</string>
+    <string name="thanhtoanonline">Thanh toán online</string>
+    <string name="soluong">Số lượng:</string>
+    <string name="thanhtoan">Thanh toán</string>
+    <string name="thongbaochonmon">Vui lòng chọn món trước khi thanh toán</string>
+    <string name="thongbaodatmonthanhcong">Món ăn sẽ được giao tới</string>
+    <string name="thongbaoloidatmon">Vui lòng nhập địa chỉ nhận hàng</string>
+    
+<!--  Thêm quán ăn  -->
+    <string name="tenquanan">Tên quán ăn</string>
+    <string name="giatoida">Giá tối đa</string>
+    <string name="giatoithieu">Giá tối thiểu</string>
+    <string name="khonggiaohang">Không giao hàng</string>
+    <string name="giomocua">Giờ mở cửa</string>
+    <string name="giodongcua">Giờ đóng cửa</string>
+    <string name="chinhanh">Chi nhánh</string>
+    <string name="tenmon">Tên món</string>
+    <string name="giatien">Giá tiền</string>
+    <string name="luuquanan">Lưu quán ăn</string>
+    <string name="themthucdon">Thêm thực đơn</string>
+
+    <string name="thongbaoloi">Vui lòng nhập đầy đủ thông tin món ăn</string>
+
+
+</resources>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparentBackgroundDangNhap"
+        android:orientation="vertical"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/foodytext" />
+
+        <EditText
+            android:id="@+id/edEmailDN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_perm_identity_white_24dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/email"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textColorLink="@color/white" />
+
+        <EditText
+            android:id="@+id/edPasswordDN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/white"
+            android:drawableLeft="@drawable/ic_lock_outline_white_24dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="@string/matkhau"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <Button
+            android:id="@+id/btnDangNhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/radius_button"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/purple_700"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:text="@string/dangnhap"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/hoac"
+                android:textColor="@color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/white" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnDangNhapFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="4dp"
+            android:background="@color/colorFacebook"
+            android:drawableLeft="@drawable/icon_facebook"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="15dp"
+            android:text="@string/dangnhapfacebook"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:com_facebook_login_text="@string/dangnhapfacebook" />
+
+        <Button
+            android:id="@+id/btnDangNhapGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="4dp"
+            android:background="@color/purple_700"
+            android:drawableLeft="@drawable/icon_google"
+            android:padding="15dp"
+            android:text="@string/dangnhapgoogle"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnDangNhapSDT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="4dp"
+            android:background="#00af67"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/purple_700"
+            android:gravity="center"
+            android:text="@string/dangnhapsdt"
+            android:textColor="@color/white"
+            android:textSize="12sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtQuenMatKhau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/quenmatkhau"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/txtDangKyMoi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dangkymoi"
+                android:textAlignment="textEnd"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/group_dangonngu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:padding="2dp"
+            android:background="@drawable/custom_radiobuttongroup_dangonngu"
+            >
+            <RadioButton
+                android:id="@+id/rd_Vietnam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Việt"
+                android:button="@android:color/transparent"
+                android:background="@drawable/custom_radio_dangonngu"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:checked="true"
+                android:textColor="@color/black"
+                />
+
+            <RadioButton
+                android:id="@+id/rd_English"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eng"
+                android:button="@android:color/transparent"
+                android:background="@drawable/custom_radio_dangonngu"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/black"
+                />
+        </RadioGroup>
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:id="@+id/imgChupHinh"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/img_mini_themhinh"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            />
+
+        <!--     Thêm tên món ăn     -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+
+            <EditText
+                android:id="@+id/edTenMon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/tenmon"
+                />
+
+            <!--     Thêm giá tiền, chọn thực đơn      -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edGiaTien"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/giatien"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    />
+
+                <!--     Chọn thực đơn      -->
+                <Spinner
+                    android:id="@+id/spinnerThucDon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </Spinner>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnThemThucDon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/themthucdon"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>

@@ -1,0 +1,154 @@
+<resources>
+    <string name="facebook_app_id">5628755180583782</string>
+    <string name="fb_login_protocol_scheme">fb5628755180583782</string>
+    <string name="facebook_client_token">767f10da506e226e210a09619088229a</string>
+
+
+<!--  Splash Screen  -->
+    <string name="app_name">Foody2</string>
+    <string name="phienban">Version</string>
+    <string name="dangtai">Loading....</string>
+    <string name="tencongty">Group 10 Android</string>
+
+<!--  Trang đăng nhập  -->
+    <string name="email">Email</string>
+    <string name="matkhau">Password</string>
+    <string name="dangnhap">Login</string>
+    <string name="hoac">Or</string>
+    <string name="dangnhapgoogle">Connect with Google</string>
+    <string name="dangnhapfacebook">Connect with Facebook</string>
+    <string name="dangnhapsdt">Connect with Phone Number</string>
+    <string name="quenmatkhau">Forget password ?</string>
+    <string name="dangkymoi"><u>Sign up</u></string>
+    <string name="thongbaodangnhapthatbai">Invalid account or password</string>
+    <string name="yeucauxacthucemail">Please verify your email before logging in</string>
+
+<!--  Trang đăng nhập bằng số điện thoại  -->
+    <string name="yeucaunhapsdtdangnhap">Please enter the phone number you want to log in</string>
+    <string name="sodtdadangky">This phone number is already registered</string>
+
+<!--  Trang đăng ký  -->
+    <string name="nhaplaimatkhau">Enter the password again</string>
+    <string name="dangky">Sign up</string>
+    <string name="hoten">Fullname</string>
+    <string name="dangkysdt">Register by phone number</string>
+    <string name="thongbaoloidangky">Please enter all information</string>
+    <string name="thongbaonhaplaimatkhau">Please enter the same password as above</string>
+    <string name="guiemailxacthuc">Send email verification successfully</string>
+    <string name="taikhoantontai">This account already exists</string>
+    <string name="sdtdalienket">This phone number has been linked</string>
+    <string name="dangxuly">Processing</string>
+
+<!--  Trang đăng ký bằng số điện thoại  -->
+    <string name="yeucaunhapsdt">Please enter the phone number you want to register</string>
+
+<!--  Quên mật khẩu  -->
+    <string name="sodienthoai">Phone Number</string>
+    <string name="khoiphucmatkhau">Password recovery</string>
+    <string name="chuoikhoiphucmatkhau">Please enter your email address or phone number in the box below to recover your password</string>
+    <string name="guimail">Send Email</string>
+    <string name="guiotp">Send OTP code</string>
+    <string name="yeucausdt">Please enter the phone number you want to recover the password</string>
+    <string name="chuoithanhvien">You are not a member ?</string>
+    <string name="thongbaoemailkhonghople">Invalid email</string>
+    <string name="thongbaoguimailthanhcong">Email sent successfully !</string>
+    <string name="yeucaunhapthongtin">Please enter the new password completely and confirm the new password</string>
+    <string name="xacnhanmatkhaumoikhongdung">Confirm new password is incorrect</string>
+    <string name="khoiphucmatkhauthanhcong">Password recovery successful</string>
+
+
+    <!--  Trang xác thực OTP  -->
+    <string name="xacthucotp">OTP Authentication</string>
+    <string name="chuoixacthucotp">Please enter the OTP code sent to your phone in the box below</string>
+    <string name="nhapmaotp">Enter OTP</string>
+    <string name="guilaiotp">Resend OTP</string>
+    <string name="yeucaunhapotp">Please enter OTP</string>
+
+<!--  Nhập mật khẩu mới (khi quên mật khẩu - otp)  -->
+    <string name="matkhaumoi">New password</string>
+    <string name="nhaplaimatkhaumoi">Reconfirm new password</string>
+    <string name="xacnhan">Confirm</string>
+    <string name="matkhau6kytu">Please enter a password of at least 6 characters</string>
+
+<!--  Trang chủ  -->
+    <string name="odau">Where</string>
+    <string name="angi">Eat What</string>
+    <string name="moinhat">Newest</string>
+    <string name="danhmuc">Category</string>
+    <string name="khuvuc">HCM</string>
+    <string name="gantoi">Near me</string>
+    <string name="giaohang">Delivery</string>
+    <string name="gameandfun">Game and Fun</string>
+    <string name="danhgia">Reviews</string>
+    <string name="blog">Blogs</string>
+    <string name="topmember">Top Members</string>
+
+<!--  Trang chủ -> Ở đâu  -->
+    <string name="datmon">Order</string>
+    
+<!--  Trang chủ -> Ăn gì  -->
+    <string name="thongbaoangi">Feature under development</string>
+
+<!--  Chi tiết quán ăn  -->
+    <string name="taianh">Photo</string>
+    <string name="binhluan">Review</string>
+    <string name="checkin">Check-in</string>
+    <string name="luulai">Save</string>
+    <string name="chiase">Share</string>
+    <string name="dangmocua">Opening</string>
+    <string name="dadongcua">Closing</string>
+    
+<!--  Cập nhật wifi (danh sách wifi)  -->
+    <string name="capnhatwifi">Update Wifi</string>
+    <string name="nhaptenwifi">Enter wifi name</string>
+    <string name="nhapmatkhauwifi">Enter wifi password</string>
+    <string name="dongy">Confirm</string>
+    <string name="loithemwifi">Please enter full wifi information</string>
+    <string name="themthanhcong">Add successfully</string>
+    
+<!--  Trang bình luận  -->
+    <string name="vietbinhluan">Write a comment</string>
+    <string name="dang">Post</string>
+    <string name="tieudebinhluan">Title (optional)</string>
+    <string name="noidungbinhluan">Enter the most accurate comment about the restaurant</string>
+    <string name="binhluanthanhcong">Post comment successfully</string>
+
+<!--  Chọn hình bình luận  -->
+    <string name="xong">Done</string>
+
+<!--  Phần thực đơn, món ăn (trong layout_main_chitietquanan)  -->
+    <string name="thucdon">Menu</string>
+
+<!--  Trang đặt món  -->
+    <string name="guiden">Deliver to</string>
+    <string name="diachi">Enter your delivery address</string>
+    <string name="giaongay">Delivery today</string>
+    <string name="tongsosanpham">Total products:</string>
+    <string name="phigiaohang">Shipping fee</string>
+    <string name="mienphi">Free</string>
+    <string name="phidichvu">Service fee</string>
+    <string name="tongcong">Total</string>
+    <string name="tienmat">Cash</string>
+    <string name="thanhtoanonline">Online Payment</string>
+    <string name="soluong">Quantity:</string>
+    <string name="thanhtoan">Submit Order</string>
+    <string name="thongbaochonmon">Please select the dishes before paying</string>
+    <string name="thongbaodatmonthanhcong">Food will be delivered to</string>
+    <string name="thongbaoloidatmon">Please enter your delivery address</string>
+    
+<!--  Thêm quán ăn  -->
+    <string name="tenquanan">Name of restaurant</string>
+    <string name="giatoida">Maximum price</string>
+    <string name="giatoithieu">Minimum price</string>
+    <string name="khonggiaohang">No delivery</string>
+    <string name="giomocua">Opening hours</string>
+    <string name="giodongcua">Close time</string>
+    <string name="chinhanh">Branches</string>
+    <string name="tenmon">Name of dish</string>
+    <string name="giatien">Price</string>
+    <string name="luuquanan">Confirm</string>
+    <string name="themthucdon">Add menu</string>
+    <string name="thongbaoloi">Please enter full dish information</string>
+
+
+</resources>

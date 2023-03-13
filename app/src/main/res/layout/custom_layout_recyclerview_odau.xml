@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:id="@+id/cardViewOdau"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/txtDiemTrungBinhQuanAn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="0"
+                android:gravity="center"
+                android:background="@drawable/background_circle"
+                android:textColor="@color/white"
+                android:layout_margin="5dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/txtTenQuanAnOdau"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tên quán"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/txtDiaChiQuanAnOdau"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Địa chỉ quán"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtKhoangCachQuanAnOdau"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="8.6km"
+                android:gravity="bottom"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageHinhQuanAnOdau"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/hinhtest"
+            android:scaleType="fitXY"
+            />
+
+        <Button
+            android:id="@+id/btnDatMonOdau"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/datmon"
+            android:background="@drawable/button_radius_5dp"
+            android:drawableTop="@drawable/local_shipping"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:padding="5dp"
+            android:visibility="gone"
+            />
+
+        <LinearLayout
+            android:id="@+id/containerBinhLuan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageUser"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="6.8"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_margin="5dp"
+                android:src="@drawable/background"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/txtTieuDeBinhLuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tiêu đề bình luận"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/txtNoiDungBinhLuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nội dung bình luận"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtChamDiemBinhLuan"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="8.6" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/containerBinhLuan2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageUser2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="6.8"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_margin="5dp"
+                android:src="@drawable/background"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/txtTieuDeBinhLuan2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tiêu đề bình luận 2"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/txtNoiDungBinhLuan2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nội dung bình luận 2"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtChamDiemBinhLuan2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="7.0"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="50dp"
+            >
+
+            <TextView
+                android:id="@+id/txtTongBinhLuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_insert_comment_black_24dp"
+                android:drawablePadding="5dp"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                />
+
+            <TextView
+                android:id="@+id/txtTongHinhBinhLuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:gravity="center"
+                android:drawableLeft="@drawable/ic_photo_camera_black_24dp"
+                android:drawablePadding="5dp"
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_700"
+        >
+        
+        <TextView
+            android:id="@+id/txtXong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/xong"
+            android:textColor="#FFF"
+            android:gravity="right"
+            android:paddingRight="10dp"
+            android:layout_gravity="right"
+            />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerChonHinhBinhLuan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

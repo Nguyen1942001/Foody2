@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:gravity="center_horizontal"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/baseline_lightbulb_24"
+        android:layout_marginBottom="15dp"
+        />
+
+    <EditText
+        android:id="@+id/edEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:textSize="20sp"
+        android:padding="25px"
+        android:layout_marginBottom="15dp"
+        android:drawableLeft="@drawable/icon_email_24"
+        android:drawablePadding="10dp"
+        android:editable="false"
+        android:textColor="#A39D9D"
+        />
+
+    <EditText
+        android:id="@+id/edSDT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/sodienthoai"
+        android:textSize="20sp"
+        android:padding="25px"
+        android:layout_marginBottom="10dp"
+        android:drawableLeft="@drawable/icon_phone_iphone_24"
+        android:drawablePadding="10dp"
+        android:editable="false"
+        android:textColor="#A39D9D"
+        />
+
+    <EditText
+        android:id="@+id/edHoTen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hoten"
+        android:textSize="20sp"
+        android:padding="25px"
+        android:layout_marginBottom="15dp"
+        android:drawableLeft="@drawable/icon_rename_24"
+        android:drawablePadding="10dp"
+        android:inputType="textPersonName"
+        />
+
+    <EditText
+        android:id="@+id/edDiaChiGiaoHang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/diachigiaohang"
+        android:textSize="20sp"
+        android:padding="25px"
+        android:drawableLeft="@drawable/icon_delivery_dining_24"
+        android:drawablePadding="10dp"
+        android:layout_marginBottom="20dp"
+        />
+
+    <Button
+        android:id="@+id/btnCapNhatThongTin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/capnhatthongtin"
+        android:padding="15dp"
+        android:textSize="16sp"
+        />
+
+</LinearLayout>

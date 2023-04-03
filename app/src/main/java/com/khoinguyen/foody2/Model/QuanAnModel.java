@@ -28,6 +28,7 @@ public class QuanAnModel implements Parcelable {
     String giomocua;
     String tenquanan;
     String videogioithieu;
+    String ngaytao;
     long luotthich, giatoida, giatoithieu;
     List<String> tienich;
     List<String> hinhanhquanan;
@@ -42,6 +43,7 @@ public class QuanAnModel implements Parcelable {
         giodongcua = in.readString();
         giomocua = in.readString();
         tenquanan = in.readString();
+        ngaytao = in.readString();
         videogioithieu = in.readString();
         luotthich = in.readLong();
         giatoida = in.readLong();
@@ -160,6 +162,14 @@ public class QuanAnModel implements Parcelable {
 
     public void setHinhanhquanan(List<String> hinhanhquanan) {
         this.hinhanhquanan = hinhanhquanan;
+    }
+
+    public String getNgaytao() {
+        return ngaytao;
+    }
+
+    public void setNgaytao(String ngaytao) {
+        this.ngaytao = ngaytao;
     }
 
     public List<BinhLuanModel> getBinhLuanModelList() {
@@ -321,6 +331,7 @@ public class QuanAnModel implements Parcelable {
         parcel.writeString(giodongcua);
         parcel.writeString(giomocua);
         parcel.writeString(tenquanan);
+        parcel.writeString(ngaytao);
         parcel.writeString(videogioithieu);
         parcel.writeLong(luotthich);
         parcel.writeLong(giatoida);

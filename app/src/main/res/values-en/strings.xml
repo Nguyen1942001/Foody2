@@ -22,10 +22,14 @@
     <string name="dangkymoi"><u>Sign up</u></string>
     <string name="thongbaodangnhapthatbai">Invalid account or password</string>
     <string name="yeucauxacthucemail">Please verify your email before logging in</string>
+    <string name="khongcosdt">Phone number is not updated</string>
 
 <!--  Trang đăng nhập bằng số điện thoại  -->
-    <string name="yeucaunhapsdtdangnhap">Please enter the phone number you want to log in</string>
+    <string name="otpkhongdung">Invalid OTP code</string>
+    <string name="sdtkhongdu10so">Please enter a phone number full of 10 digits</string>
     <string name="sodtdadangky">This phone number is already registered</string>
+    <string name="khongcoten">Your fullname has not been updated</string>
+    <string name="khongcoemail">Email has not been updated</string>
 
 <!--  Trang đăng ký  -->
     <string name="nhaplaimatkhau">Enter the password again</string>
@@ -51,6 +55,8 @@
     <string name="yeucausdt">Please enter the phone number you want to recover the password</string>
     <string name="chuoithanhvien">You are not a member ?</string>
     <string name="thongbaoemailkhonghople">Invalid email</string>
+    <string name="emailchuadk">This email has not been registered before</string>
+    <string name="sdtchuadk">This phone number has not been registered before</string>
     <string name="thongbaoguimailthanhcong">Email sent successfully !</string>
     <string name="yeucaunhapthongtin">Please enter the new password completely and confirm the new password</string>
     <string name="xacnhanmatkhaumoikhongdung">Confirm new password is incorrect</string>
@@ -63,6 +69,7 @@
     <string name="nhapmaotp">Enter OTP</string>
     <string name="guilaiotp">Resend OTP</string>
     <string name="yeucaunhapotp">Please enter OTP</string>
+    <string name="thoigianguilai">After</string>
 
 <!--  Nhập mật khẩu mới (khi quên mật khẩu - otp)  -->
     <string name="matkhaumoi">New password</string>
@@ -88,6 +95,23 @@
     
 <!--  Trang chủ -> Ăn gì  -->
     <string name="thongbaoangi">Feature under development</string>
+
+<!--   Trang chủ - menu   -->
+    <string name="capnhatthongtin">Update personal information</string>
+    <string name="lichsudonhang">Orders history</string>
+    <string name="chinhsach">User Policy</string>
+    <string name="ngonngu">Language</string>
+    <string name="dangxuat">Log out</string>
+    <string name="khongnhapduthongtin">Please enter full information</string>
+    <string name="capnhatthanhcong">Successfully updated personal information</string>
+
+<!--  Menu - Cập nhật thông tin user  -->
+    <string name="diachigiaohang">Delivery Address</string>
+
+<!-- Menu - Thay đổi ngôn ngữ  -->
+    <string name="tiengviet">Vietnamese</string>
+    <string name="tienganh">English</string>
+    <string name="huy">Cancel</string>
 
 <!--  Chi tiết quán ăn  -->
     <string name="taianh">Photo</string>
@@ -122,6 +146,7 @@
 <!--  Trang đặt món  -->
     <string name="guiden">Deliver to</string>
     <string name="diachi">Enter your delivery address</string>
+    <string name="sdtnhanhang">Enter your delivery phone number</string>
     <string name="giaongay">Delivery today</string>
     <string name="tongsosanpham">Total products:</string>
     <string name="phigiaohang">Shipping fee</string>
@@ -134,7 +159,7 @@
     <string name="thanhtoan">Submit Order</string>
     <string name="thongbaochonmon">Please select the dishes before paying</string>
     <string name="thongbaodatmonthanhcong">Food will be delivered to</string>
-    <string name="thongbaoloidatmon">Please enter your delivery address</string>
+    <string name="thongbaoloidatmon">Please enter all information before ordering</string>
     
 <!--  Thêm quán ăn  -->
     <string name="tenquanan">Name of restaurant</string>
@@ -150,5 +175,9 @@
     <string name="themthucdon">Add menu</string>
     <string name="thongbaoloi">Please enter full dish information</string>
 
+<!--  Lịch sử đơn hàng  -->
+    <string name="tongtien">Total Price</string>
+    <string name="dagiao">Deliveried</string>
+    <string name="datlai">Re-order</string>
 
 </resources>

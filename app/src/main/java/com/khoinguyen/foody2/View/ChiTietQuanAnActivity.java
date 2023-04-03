@@ -45,11 +45,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.khoinguyen.foody2.Adapters.AdapterBinhLuan;
+import com.khoinguyen.foody2.Adapters.AdapterChiNhanhQuanAn;
+import com.khoinguyen.foody2.Adapters.AdapterDatMon;
 import com.khoinguyen.foody2.Adapters.AdapterMonAn;
 import com.khoinguyen.foody2.Adapters.AdapterRecyclerHinhBinhLuan;
 import com.khoinguyen.foody2.Controller.ChiTietQuanAnController;
 import com.khoinguyen.foody2.Controller.ThucDonController;
 import com.khoinguyen.foody2.Model.BinhLuanModel;
+import com.khoinguyen.foody2.Model.ChiNhanhQuanAnModel;
 import com.khoinguyen.foody2.Model.QuanAnModel;
 import com.khoinguyen.foody2.Model.TienIchModel;
 import com.khoinguyen.foody2.R;
@@ -71,7 +74,7 @@ public class ChiTietQuanAnActivity extends AppCompatActivity implements OnMapRea
             txtTongSoHinhAnh, txtTongSoBinhLuan, txtTongSoCheckIn, txtTongSoLuuLai, txtTieuDeToolbar,
             txtGioiHanGia, txtTenWifi, txtMatKhauWifi, txtNgayDangWifi;
     Button btnBinhLuan, btnDatMon;
-    RecyclerView recyclerViewBinhLuan, recyclerThucDon;
+    RecyclerView recyclerViewBinhLuan, recyclerThucDon, recyclerChiNhanhQuanAn;
     Toolbar toolbar;
     QuanAnModel quanAnModel;
     AdapterBinhLuan adapterBinhLuan;
@@ -84,6 +87,7 @@ public class ChiTietQuanAnActivity extends AppCompatActivity implements OnMapRea
 
     ChiTietQuanAnController chiTietQuanAnController;
     ThucDonController thucDonController;
+    String diaChiQuanAnDuocChon;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -113,6 +117,7 @@ public class ChiTietQuanAnActivity extends AppCompatActivity implements OnMapRea
         imPre = findViewById(R.id.imPrev);
         recyclerThucDon = findViewById(R.id.recyclerThucDon);
         btnDatMon = findViewById(R.id.btnDatMon);
+        recyclerChiNhanhQuanAn = findViewById(R.id.recyclerChiNhanhQuanAn);
 
         btnBinhLuan.setOnClickListener(this);
         btnDatMon.setOnClickListener(this);
@@ -172,6 +177,15 @@ public class ChiTietQuanAnActivity extends AppCompatActivity implements OnMapRea
         }
 
         txtTieuDeToolbar.setText(quanAnModel.getTenquanan());
+
+        // Load chi nhánh quán ăn
+        recyclerChiNhanhQuanAn.setLayoutManager(new LinearLayoutManager(this));
+        AdapterChiNhanhQuanAn adapterChiNhanhQuanAn = new AdapterChiNhanhQuanAn
+                (this, R.layout.layout_main_chitietquanan, quanAnModel.getChiNhanhQuanAnModelList(),
+                        quanAnModel.getTenquanan(), mapFragment, txtDiaChiQuanAn);
+        recyclerChiNhanhQuanAn.setAdapter(adapterChiNhanhQuanAn);
+        adapterChiNhanhQuanAn.notifyDataSetChanged();
+
 
         txtTenQuanAn.setText(quanAnModel.getTenquanan());
         txtDiaChiQuanAn.setText(quanAnModel.getChiNhanhQuanAnModelList().get(0).getDiachi());
@@ -314,7 +328,6 @@ public class ChiTietQuanAnActivity extends AppCompatActivity implements OnMapRea
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 14);
         googleMap.moveCamera(cameraUpdate);
-
     }
 
     private void DownloadHinhTienIch () {
@@ -370,7 +383,8 @@ public class ChiTietQuanAnActivity extends AppCompatActivity implements OnMapRea
 
             case R.id.btnDatMon:
                 Intent iDatMon = new Intent(this, DatMonActivity.class);
-                iDatMon.putExtra("tenquan", quanAnModel.getTenquanan());
+                iDatMon.putExtra("quanan", quanAnModel);
+                iDatMon.putExtra("diachiquanan", txtDiaChiQuanAn.getText().toString());
                 startActivity(iDatMon);
                 break;
 

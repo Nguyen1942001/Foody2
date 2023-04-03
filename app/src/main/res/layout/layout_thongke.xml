@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_700"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/tvMaDonHang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thống kê"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:layout_marginRight="40dp"
+                />
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--  Filter dữ liệu cho biểu đồ  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginBottom="15dp">
+
+        <!--   Spinner thời gian     -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thời gian"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:paddingLeft="15dp"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerThoiGian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                android:enabled="true"
+                />
+
+        </LinearLayout>
+
+        <!--   Spinner thành viên     -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thành viên"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:paddingLeft="15dp"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerThanhVien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                android:enabled="true"
+                />
+
+        </LinearLayout>
+
+        <!--   Spinner đơn hàng     -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_marginBottom="5dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đơn hàng"
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:paddingLeft="15dp"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerDonHang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                android:enabled="true"
+                />
+
+        </LinearLayout>
+
+        <!--   Spinner quán ăn     -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quán ăn"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingLeft="15dp"
+                android:layout_marginBottom="5dp"
+                />
+
+            <Spinner
+                android:id="@+id/spinnerQuanAn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                android:enabled="true"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <Button
+            android:id="@+id/btnBarChart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bar Chart"
+            android:textSize="20sp"
+            android:padding="15dp"
+            />
+
+        <Button
+            android:id="@+id/btnPieChart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pie Chart"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
+            />
+
+        <Button
+            android:id="@+id/btnLineChart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Line Chart"
+            android:textSize="20sp"
+            android:padding="15dp"
+            />
+
+    </LinearLayout>
+</LinearLayout>

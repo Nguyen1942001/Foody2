@@ -6,16 +6,18 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 
 public class DatMonModel implements Parcelable {
-    String tenmonan;
+    String mamon, tenmonan, linkhinh;
     int soluong;
     long giatien;
 
     public DatMonModel () {}
 
     protected DatMonModel(Parcel in) {
+        mamon = in.readString();
         tenmonan = in.readString();
         soluong = in.readInt();
         giatien = in.readLong();
+        linkhinh = in.readString();
     }
 
     public static final Creator<DatMonModel> CREATOR = new Creator<DatMonModel>() {
@@ -29,6 +31,14 @@ public class DatMonModel implements Parcelable {
             return new DatMonModel[size];
         }
     };
+
+    public String getMamon() {
+        return mamon;
+    }
+
+    public void setMamon(String mamon) {
+        this.mamon = mamon;
+    }
 
     public String getTenmonan() {
         return tenmonan;
@@ -54,6 +64,14 @@ public class DatMonModel implements Parcelable {
         this.giatien = giatien;
     }
 
+    public String getLinkhinh() {
+        return linkhinh;
+    }
+
+    public void setLinkhinh(String linkhinh) {
+        this.linkhinh = linkhinh;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -61,8 +79,10 @@ public class DatMonModel implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeString(mamon);
         parcel.writeString(tenmonan);
         parcel.writeInt(soluong);
         parcel.writeLong(giatien);
+        parcel.writeString(linkhinh);
     }
 }

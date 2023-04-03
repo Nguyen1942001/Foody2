@@ -150,6 +150,16 @@
                         android:paddingLeft="10dp"
                         />
 
+                    <!--   Danh sách chi nhánh quán ăn    -->
+                    <!--   custom_layout_chinhanhquanan    -->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerChiNhanhQuanAn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"

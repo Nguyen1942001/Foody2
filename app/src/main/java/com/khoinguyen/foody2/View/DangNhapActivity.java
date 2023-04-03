@@ -3,6 +3,7 @@ package com.khoinguyen.foody2.View;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,12 +46,22 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.khoinguyen.foody2.Controller.DangKyController;
+import com.khoinguyen.foody2.Model.QuanAnModel;
+import com.khoinguyen.foody2.Model.ThanhVienModel;
 import com.khoinguyen.foody2.R;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
@@ -65,6 +76,7 @@ public class DangNhapActivity extends AppCompatActivity implements GoogleApiClie
     RadioButton rd_Vietnam, rd_English;
 
     GoogleApiClient apiClient;
+    GoogleSignInAccount accountGoogle;  // account google sau khi login
     public static final int REQUESTCODE_DANGNHAP_GOOGLE = 99;
     public static int KIEMTRA_PROVIDER_DANGNHAP = 0;
     FirebaseAuth firebaseAuth;
@@ -206,9 +218,10 @@ public class DangNhapActivity extends AppCompatActivity implements GoogleApiClie
         if (requestCode == REQUESTCODE_DANGNHAP_GOOGLE) {
             if (resultCode == RESULT_OK) {
                 GoogleSignInResult signInResult = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+
                 // Lấy ra được tài khoản đã đăng nhập bằng google
-                GoogleSignInAccount account = signInResult.getSignInAccount();
-                String tokenID = account.getIdToken();
+                accountGoogle = signInResult.getSignInAccount();
+                String tokenID = accountGoogle.getIdToken();
 
                 // Truyền token id của tài khoản cho function bên dưới
                 ChungThucDangNhapFirebase(tokenID);
@@ -286,14 +299,45 @@ public class DangNhapActivity extends AppCompatActivity implements GoogleApiClie
     // Kiểm tra trạng thái đăng nhập của user (cả facebook và google)
     @Override
     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDate = dateFormat.format(calendar.getTime());
+
+        ThanhVienModel thanhVienModel = new ThanhVienModel();
+        DangKyController dangKyController = new DangKyController();
+
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         if (user != null) {
+            // Đăng nhập google
+            if (KIEMTRA_PROVIDER_DANGNHAP == 1) {
+                thanhVienModel.setHoten("");
+                thanhVienModel.setHinhanh("user.png");
+                thanhVienModel.setEmail(accountGoogle.getEmail());
+                thanhVienModel.setDiachi("");
+                thanhVienModel.setSodienthoai("");
+                thanhVienModel.setNgaytao(currentDate);
+
+                dangKyController.ThemThongTinThanhVienController(thanhVienModel, user.getUid());
+            }
+
+            // Đăng nhập facebook
+            else if (KIEMTRA_PROVIDER_DANGNHAP == 2) {
+                thanhVienModel.setHoten(user.getDisplayName());
+                thanhVienModel.setHinhanh("user.png");
+                thanhVienModel.setEmail(user.getEmail());
+                thanhVienModel.setDiachi("");
+                thanhVienModel.setSodienthoai("");
+                thanhVienModel.setNgaytao(currentDate);
+
+                dangKyController.ThemThongTinThanhVienController(thanhVienModel, user.getUid());
+            }
+
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("mauser", user.getUid());
             editor.commit();
 
-            Intent iTrangChu = new Intent(this, TrangChuActivity.class);
+            Intent iTrangChu = new Intent(DangNhapActivity.this, TrangChuActivity.class);
             startActivity(iTrangChu);
         }
     }

@@ -3,13 +3,17 @@ package com.khoinguyen.foody2.View;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,16 +33,21 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.khoinguyen.foody2.Controller.DangKyController;
 import com.khoinguyen.foody2.Model.ThanhVienModel;
 import com.khoinguyen.foody2.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class DangKyActivity extends AppCompatActivity implements View.OnClickListener {
 
     LinearLayout layoutDK1, layoutDK2;
+    TextView tvGuiLaiOTP, tv_countdown;
     Button btnDangKy, btnXacNhanOTP;
     EditText edEmailDK, edPasswordDK, edNhapLaiPasswordDK, edSoDienThoaiDK, edHoTenDK, edOTP;
     FirebaseAuth firebaseAuth;
@@ -48,8 +57,8 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
     PhoneAuthProvider.ForceResendingToken storedForceResendingToken;
     String sodienthoai;
     ThanhVienModel thanhVienModel;
-
     SharedPreferences sharedPreferences;
+    CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,10 +78,48 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
         edHoTenDK = findViewById(R.id.edHoTenDK);
         edOTP = findViewById(R.id.edOTP);
         btnXacNhanOTP = findViewById(R.id.btnXacNhanOTP);
+        tvGuiLaiOTP = findViewById(R.id.tvGuiLaiOTP);
+        tv_countdown = findViewById(R.id.tv_countdown);
 
         btnDangKy.setOnClickListener(this);
         btnXacNhanOTP.setOnClickListener(this);
         progressDialog = new ProgressDialog(this);
+        tvGuiLaiOTP.setOnClickListener(this);
+
+        thanhVienModel = new ThanhVienModel();
+    }
+
+    private void startCountdownTimer() {
+        // Disable the "Resend OTP" button during the countdown
+        tvGuiLaiOTP.setEnabled(false);
+        tvGuiLaiOTP.setTextColor(getColor(R.color.transparentBackgroundDangNhap));
+
+        // Start the countdown timer for 60 seconds
+        countDownTimer = new CountDownTimer(30000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // Update the TextView with the remaining time
+                long seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) % 60;
+                tv_countdown.setText(String.format(Locale.getDefault(), getString(R.string.thoigianguilai) + ": %02d" + "s", seconds));
+            }
+
+            @Override
+            public void onFinish() {
+                // Enable the "Resend OTP" button when the timer finishes
+                tvGuiLaiOTP.setEnabled(true);
+                tv_countdown.setText("");
+
+                tvGuiLaiOTP.setTextColor(Color.parseColor("#0CD1EA"));
+            }
+        };
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                countDownTimer.start();
+                Log.d("kiemtra", "waiting");
+            }
+        }, 25000);
     }
 
     @Override
@@ -121,7 +168,6 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
                             } else {
                                 // Nếu chưa có thì tạo mới
                                 registerNewAccount(email, matkhau, sodienthoai);
-                                Log.d("kiemtra", sodienthoai);
                             }
                         } else {
                             Toast.makeText(DangKyActivity.this, "Can't get list user", Toast.LENGTH_SHORT).show();
@@ -134,7 +180,14 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btnXacNhanOTP:
                 PhoneAuthCredential credential = PhoneAuthProvider.getCredential
                         (storedVerificationId, edOTP.getText().toString());
-                linkPhoneNumberToAcccount(credential);
+                linkPhoneNumberToAcccount(credential, edEmailDK.getText().toString());
+                break;
+
+            case R.id.tvGuiLaiOTP:
+                reSendOTP(sodienthoai);
+
+                // Start the countdown timer
+                startCountdownTimer();
                 break;
         }
     }
@@ -145,25 +198,18 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    firebaseAuth.getCurrentUser().sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             progressDialog.dismiss();
-
-                            thanhVienModel = new ThanhVienModel();
-                            thanhVienModel.setHoten(email);
-                            thanhVienModel.setHinhanh("user.png");
-                            String uid = task.getResult().getUser().getUid();
-
-                            dangKyController = new DangKyController();
-                            dangKyController.ThemThongTinThanhVienController(thanhVienModel, uid);
                             Toast.makeText(DangKyActivity.this, getString(R.string.guiemailxacthuc), Toast.LENGTH_SHORT).show();
 
                             sendOTP(sodienthoai);
 
+                            // Start the countdown timer
+                            startCountdownTimer();
                         }
-
-
                     });
                 }
             }
@@ -174,7 +220,7 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
         PhoneAuthOptions options = PhoneAuthOptions.newBuilder(firebaseAuth)
                 .setActivity(this)
                 .setPhoneNumber(sodienthoai)
-                .setTimeout(60L, TimeUnit.SECONDS)
+                .setTimeout(30L, TimeUnit.SECONDS)
                 .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
@@ -191,7 +237,7 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
                         super.onCodeSent(s, forceResendingToken);
 
                         storedVerificationId = s;
-                        storedForceResendingToken = forceResendingToken;
+//                        storedForceResendingToken = forceResendingToken;
 
                         layoutDK1.setVisibility(View.GONE);
                         layoutDK2.setVisibility(View.VISIBLE);
@@ -203,7 +249,37 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private void linkPhoneNumberToAcccount (PhoneAuthCredential phoneAuthCredential) {
+    public void reSendOTP (String sodienthoai) {
+        PhoneAuthOptions options = PhoneAuthOptions.newBuilder(firebaseAuth)
+                .setActivity(this)
+                .setPhoneNumber(sodienthoai)
+                .setTimeout(30L, TimeUnit.SECONDS)
+                .setForceResendingToken(storedForceResendingToken)
+                .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    @Override
+                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                        linkPhoneNumberToAcccount(phoneAuthCredential, edEmailDK.getText().toString());
+                    }
+
+                    @Override
+                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                        Toast.makeText(DangKyActivity.this, "Error when resending OTP", Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                        super.onCodeSent(s, forceResendingToken);
+
+                        storedVerificationId = s;
+                        storedForceResendingToken = forceResendingToken;
+                    }
+                })
+                .build();
+
+        PhoneAuthProvider.verifyPhoneNumber(options);
+    }
+
+    private void linkPhoneNumberToAcccount (PhoneAuthCredential phoneAuthCredential, String email) {
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         if (user != null) {
@@ -211,16 +287,41 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Toast.makeText(this, "Liên kết số điện thoại thành công", Toast.LENGTH_LONG).show();
-                            thanhVienModel.setSodienthoai(sodienthoai);
+
+                            Calendar calendar = Calendar.getInstance();
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                            String currentDate = dateFormat.format(calendar.getTime());
+
+                            String uid = user.getUid();
+
+                            thanhVienModel.setHoten(edHoTenDK.getText().toString());
+                            thanhVienModel.setHinhanh("user.png");
+                            thanhVienModel.setEmail(email);
+                            thanhVienModel.setDiachi("");
+                            thanhVienModel.setSodienthoai(edSoDienThoaiDK.getText().toString());
+                            thanhVienModel.setNgaytao(currentDate);
+
                             dangKyController = new DangKyController();
-                            dangKyController.ThemThongTinThanhVienController(thanhVienModel, user.getUid());
+                            dangKyController.ThemThongTinThanhVienController(thanhVienModel, uid);
 
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("mauser", user.getUid());
-                            editor.commit();
+                            Uri photoUri = Uri.parse("user.png");
+                            UserProfileChangeRequest userProfileChangeRequest = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(edHoTenDK.getText().toString())
+                                    .setPhotoUri(photoUri)
+                                    .build();
+                            user.updateProfile(userProfileChangeRequest).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("mauser", user.getUid());
+                                    editor.commit();
 
-                            Intent iTrangChu = new Intent(this, TrangChuActivity.class);
-                            startActivity(iTrangChu);
+                                    Intent iTrangChu = new Intent(DangKyActivity.this, TrangChuActivity.class);
+                                    startActivity(iTrangChu);
+                                }
+                            });
+
+
                         } else {
                             Toast.makeText(this, "Phone number linking failed", Toast.LENGTH_LONG).show();
                         }

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/purple_700"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:id="@+id/tvMaDonHang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Đơn hàng #2UFHRTI"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:gravity="center"
+                            android:layout_marginRight="35dp"
+                            />
+
+                    </LinearLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#f4f4f4"
+                    >
+
+                    <!--   Trạng thái đơn hàng     -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="15dp"
+                        android:background="#FFF"
+                        android:padding="5dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/baseline_check_circle_outline_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:text="ĐÃ ĐẾN TAY NGƯỜI NHẬN"
+                            android:textColor="#000"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Cảm ơn bạn đã cho Foody cơ hội được phục vụ."
+                            android:textColor="#000"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="40dp"
+                            android:text="Foody biết bạn có nhiều sự lựa chọn, cảm ơn vì đã chọn Foody ngày hôm nay."
+                            android:textColor="#000"
+                            android:textSize="16dp"
+                            />
+
+                    </LinearLayout>
+
+                    <!--   Danh sách món ăn     -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginBottom="15dp"
+                        android:background="#FFF"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center_vertical"
+                            android:padding="5dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tvTenQuanAn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cơm gà xối mỡ San"
+                                android:textColor="#000"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="5dp"/>
+
+                            <TextView
+                                android:id="@+id/tvDiaChiQuanAn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="145 Đường số 2, phường Tăng Nhơ..."
+                                android:textColor="#000"
+                                android:textSize="15sp"
+                                android:layout_marginBottom="5dp"/>
+
+                            <Button
+                                android:id="@+id/btnReview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:text="Chia sẻ cảm nhận"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textAllCaps="false"
+                                android:background="#ebebeb"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/imgQuanAn"
+                            android:layout_width="88dp"
+                            android:layout_height="88dp"
+                            />
+
+                    </LinearLayout>
+
+                    <!--    Thông tin đơn hàng    -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:background="#fff"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="15dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/tvMaDonHang2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mã đơn #2UFHRTI"
+                            android:textSize="16sp"
+                            android:layout_marginBottom="5dp"/>
+
+                        <!--     Thông tin quán ăn đã đặt món       -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="5dp"
+                            android:gravity="center_horizontal"
+                            android:layout_marginBottom="5dp"
+                            >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/icon_restaurant_24" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="10dp"
+                                android:layout_weight="1"
+                                >
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nơi mua hàng"
+                                    android:textColor="#000"
+                                    android:textSize="18sp"/>
+
+                                <TextView
+                                    android:id="@+id/tvTenQuanAn2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Cơm gà xối mỡ San"
+                                    android:textColor="#000"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"/>
+
+                            </LinearLayout>
+
+                            <ImageButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/icon_arrow_forward_ios_24"
+                                android:layout_gravity="center"
+                                />
+
+                        </LinearLayout>
+
+                        <!--      Thông tin đơn hàng - địa chỉ, sđt      -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="5dp"
+                            android:gravity="center_horizontal"
+                            >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/icon_location_on_24" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="10dp"
+                                android:layout_weight="1"
+                                >
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nơi giao hàng"
+                                    android:textColor="#000"
+                                    android:textSize="18sp"/>
+
+                                <TextView
+                                    android:id="@+id/tvDiaChiGiaoHang"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="HVCNBCVT"
+                                    android:textColor="#000"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!--    custom_layout_chitiet_lichsudonhang    -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerMonAn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            >
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="10dp"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tổng"
+                                android:textColor="#000"
+                                android:textStyle="bold"
+                                android:layout_weight="1"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/tvTongTien"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="62.000đ"
+                                android:textColor="#000"
+                                android:textStyle="bold"
+                                android:textSize="20sp"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!--   Nút đặt lại đơn hàng     -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:background="#FFF">
+
+            <Button
+                android:id="@+id/btnDatLai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_datlai_chitietlichsudonhang"
+                android:padding="20dp"
+                android:text="Đặt lại"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:textAllCaps="false">
+            </Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

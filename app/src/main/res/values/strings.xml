@@ -22,10 +22,14 @@
     <string name="dangkymoi"><u>Đăng ký mới</u></string>
     <string name="thongbaodangnhapthatbai">Tài khoản hoặc mật khẩu không hợp lệ</string>
     <string name="yeucauxacthucemail">Vui lòng xác thực email trước khi đăng nhập</string>
+    <string name="khongcosdt">Số điện thoại chưa cập nhật</string>
 
 <!--  Trang đăng nhập bằng số điện thoại  -->
-    <string name="yeucaunhapsdtdangnhap">Hãy nhập số điện thoại muốn đăng nhập</string>
+    <string name="otpkhongdung">Mã OTP không hợp lệ</string>
+    <string name="sdtkhongdu10so">Hãy nhập số điện thoại đủ 10 số</string>
     <string name="sodtdadangky">Số điện thoại này đã được đăng ký</string>
+    <string name="khongcoten">Họ tên chưa được cập nhật</string>
+    <string name="khongcoemail">Email chưa được cập nhật</string>
 
 <!--  Trang đăng ký  -->
     <string name="nhaplaimatkhau">Nhập lại mật khẩu</string>
@@ -51,6 +55,8 @@
     <string name="yeucausdt">Hãy nhập số điện thoại muốn khôi phục mật khẩu</string>
     <string name="chuoithanhvien">Bạn không phải là thành viên ?</string>
     <string name="thongbaoemailkhonghople">Email không hợp lệ</string>
+    <string name="emailchuadk">Email này chưa được đăng ký trước đó</string>
+    <string name="sdtchuadk">Số điện thoại này chưa được đăng ký trước đó</string>
     <string name="thongbaoguimailthanhcong">Gửi email thành công !</string>
     <string name="yeucaunhapthongtin">Vui lòng nhập đầy đủ mật khẩu mới và xác nhận mật khẩu mới</string>
     <string name="xacnhanmatkhaumoikhongdung">Xác nhận mật khẩu mới không đúng</string>
@@ -62,6 +68,7 @@
     <string name="chuoixacthucotp">Bạn vui lòng nhập mã OTP được gửi tới điện thoại bạn vào ô bên dưới</string>
     <string name="nhapmaotp">Nhập mã OTP</string>
     <string name="guilaiotp">Gửi lại mã OTP</string>
+    <string name="thoigianguilai">Sau</string>
     <string name="yeucaunhapotp">Vui lòng nhập mã OTP</string>
 
 <!--  Nhập mật khẩu mới (khi quên mật khẩu - otp)  -->
@@ -88,6 +95,23 @@
     
 <!--  Trang chủ -> Ăn gì  -->
     <string name="thongbaoangi">Tính năng đang được phát triển</string>
+
+<!--  Trang chủ - menu  -->
+    <string name="capnhatthongtin">Cập nhật thông tin cá nhân</string>
+    <string name="lichsudonhang">Lịch sử đơn hàng</string>
+    <string name="chinhsach">Chính sách quy định</string>
+    <string name="ngonngu">Ngôn ngữ</string>
+    <string name="dangxuat">Đăng xuất</string>
+    <string name="khongnhapduthongtin">Vui lòng nhập đầy đủ thông tin</string>
+    <string name="capnhatthanhcong">Cập nhật thông tin cá nhân thành công</string>
+
+<!-- Menu - Cập nhật thông tin user   -->
+    <string name="diachigiaohang">Địa chỉ giao hàng</string>
+
+<!--  Menu - Thay đổi ngôn ngữ  -->
+    <string name="tiengviet">Tiếng Việt</string>
+    <string name="tienganh">Tiếng Anh</string>
+    <string name="huy">Hủy</string>
 
 <!--  Chi tiết quán ăn  -->
     <string name="taianh">Tải ảnh</string>
@@ -122,6 +146,7 @@
 <!--  Trang đặt món  -->
     <string name="guiden">Gửi đến</string>
     <string name="diachi">Nhập địa chỉ nhận hàng</string>
+    <string name="sdtnhanhang">Nhập số điện thoại nhận hàng</string>
     <string name="giaongay">Giao ngay hôm nay</string>
     <string name="tongsosanpham">Tổng số sản phẩm:</string>
     <string name="phigiaohang">Phí giao hàng</string>
@@ -134,7 +159,7 @@
     <string name="thanhtoan">Thanh toán</string>
     <string name="thongbaochonmon">Vui lòng chọn món trước khi thanh toán</string>
     <string name="thongbaodatmonthanhcong">Món ăn sẽ được giao tới</string>
-    <string name="thongbaoloidatmon">Vui lòng nhập địa chỉ nhận hàng</string>
+    <string name="thongbaoloidatmon">Vui lòng nhập đầy đủ thông tin trước khi đặt món</string>
     
 <!--  Thêm quán ăn  -->
     <string name="tenquanan">Tên quán ăn</string>
@@ -150,6 +175,11 @@
     <string name="themthucdon">Thêm thực đơn</string>
 
     <string name="thongbaoloi">Vui lòng nhập đầy đủ thông tin món ăn</string>
+
+    <!--  Lịch sử đơn hàng  -->
+    <string name="tongtien">Tổng tiền</string>
+    <string name="dagiao">Đã giao</string>
+    <string name="datlai">Đặt lại</string>
 
 
 </resources>

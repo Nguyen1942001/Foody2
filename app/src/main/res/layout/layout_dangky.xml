@@ -119,7 +119,7 @@
         </LinearLayout>
 
 
-        <!--   Layout đăng ký 2     -->
+        <!--   Layout đăng ký 2 - Nhập mã OTP và gửi lại OTP    -->
         <LinearLayout
             android:id="@+id/layoutDK2"
             android:layout_width="match_parent"
@@ -167,6 +167,35 @@
                 android:text="@string/xacnhan"
                 android:textColor="@color/white"
                 />
+
+            <LinearLayout
+                android:id="@+id/khungGuiLaiOTP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:id="@+id/tvGuiLaiOTP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/guilaiotp"
+                    android:textColor="#0CD1EA"
+                    android:textSize="18sp"
+                    android:enabled="false"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tv_countdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 

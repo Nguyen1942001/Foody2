@@ -58,6 +58,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -510,6 +511,10 @@ public class ThemQuanAnActivity extends AppCompatActivity implements View.OnClic
 
     private void ThemQuanAn () {
 
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String currentDate = dateFormat.format(calendar.getTime());
+
         boolean kiemtra = false;
 
         // Kiểm tra tên quán ăn, giá tối đa, giá tối thiểu
@@ -569,6 +574,7 @@ public class ThemQuanAnActivity extends AppCompatActivity implements View.OnClic
         quanAnModel.setGiomocua(giomocua);
         quanAnModel.setGiodongcua(giodongcua);
         quanAnModel.setGiaohang(giaohang);
+        quanAnModel.setNgaytao(currentDate);
 
         if (videoSelected != null) {
             quanAnModel.setVideogioithieu(videoSelected.getLastPathSegment());

@@ -29,15 +29,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/baseline_phone_24"
             android:drawablePadding="10dp"
-            android:ems="10"
+            android:maxLength="10"
             android:hint="@string/sodienthoai"
-            android:inputType="textEmailAddress"
+            android:inputType="phone|number"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textColorLink="@color/white" />
+             />
 
         <Button
             android:id="@+id/btnGuiMaOTP"
@@ -46,12 +45,11 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/radius_button"
-            android:drawablePadding="10dp"
-            android:drawableTint="@color/purple_700"
             android:paddingLeft="60dp"
             android:paddingRight="60dp"
             android:text="@string/guiotp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:visibility="gone"/>
 
         <EditText
             android:id="@+id/edOTP"
@@ -59,11 +57,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/white"
-            android:drawableLeft="@drawable/ic_email_white_24dp"
+            android:drawableLeft="@drawable/baseline_phone_24"
             android:drawablePadding="10dp"
-            android:ems="10"
+            android:maxLength="6"
             android:hint="OTP"
-            android:inputType="textEmailAddress"
+            android:inputType="number"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textColorLink="@color/white"
@@ -83,6 +81,36 @@
             android:text="@string/xacnhan"
             android:textColor="@color/white"
             android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/khungGuiLaiOTP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/tvGuiLaiOTP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/guilaiotp"
+                android:textColor="#0CD1EA"
+                android:textSize="18sp"
+                android:enabled="false"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tv_countdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>

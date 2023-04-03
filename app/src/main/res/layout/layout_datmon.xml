@@ -1,197 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         >
 
-        <include layout="@layout/layout_toolbar" />
-
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
+            android:layout_weight="1"
             >
 
-            <TextView
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/guiden"
-                android:textColor="@color/colorFacebook"
-                />
+                android:layout_height="match_parent"
+                >
 
-            <EditText
-                android:id="@+id/editDiaChiGiaoHang"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/diachi"
-                />
+                <include layout="@layout/layout_toolbar" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/giaongay"
-                android:textSize="15sp"
-                android:textColor="@color/colorFacebook"
-                />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    >
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/guiden"
+                        android:textColor="@color/colorFacebook"
+                        />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@color/colorBackgroundTrangChu"
-            />
+                    <EditText
+                        android:id="@+id/editDiaChiGiaoHang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/diachi"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:layout_marginBottom="10dp"
+                        />
 
-        <!--  Danh sách các món ăn được đặt  -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerMonAnDuocDat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:padding="5dp"
-            >
-        </androidx.recyclerview.widget.RecyclerView>
+                    <EditText
+                        android:id="@+id/editSDTNhanHang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sdtnhanhang"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:layout_marginBottom="5dp"
+                        />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/giaongay"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorFacebook"
+                        />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tongsosanpham"
-                android:layout_marginRight="3dp"
-                android:textSize="16sp"
-                />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtTongSoLuongSanPham"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2"
-                android:layout_weight="1"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/colorBackgroundTrangChu"
+                    />
 
-            <TextView
-                android:id="@+id/txtTongTienTruoc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="190.000đ"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                />
+                <!--  Danh sách các món ăn được đặt  -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerMonAnDuocDat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="5dp"
+                    >
+                </androidx.recyclerview.widget.RecyclerView>
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tongsosanpham"
+                        android:layout_marginRight="3dp"
+                        android:textSize="16sp"
+                        />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/phigiaohang"
-                android:textSize="16sp"
-                android:layout_weight="1"
-                />
+                    <TextView
+                        android:id="@+id/txtTongSoLuongSanPham"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:layout_weight="1"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/mienphi"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                />
+                    <TextView
+                        android:id="@+id/txtTongTienTruoc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="190.000đ"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
 
-        </LinearLayout>
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    >
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/phidichvu"
-                android:textSize="16sp"
-                android:layout_weight="1"
-                />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phigiaohang"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3.000đ"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mienphi"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
 
-        </LinearLayout>
+                </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorBackgroundTrangChu"
-            />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:padding="10dp"
-            >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phidichvu"
+                        android:textSize="16sp"
+                        android:layout_weight="1"
+                        />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/tongcong"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_weight="1"
-                />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3.000đ"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
 
-            <TextView
-                android:id="@+id/txtTongTienSau"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="400.000đ"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                />
+                </LinearLayout>
 
-        </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorBackgroundTrangChu"
+                    />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@color/colorBackgroundTrangChu"
-            />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="10dp"
+                    >
 
-        <include layout="@layout/layout_phuongthucthanhtoan" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tongcong"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtTongTienSau"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="400.000đ"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/colorBackgroundTrangChu"
+                    />
+
+                <include layout="@layout/layout_phuongthucthanhtoan" />
+
+
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
 
         <Button
@@ -209,5 +241,8 @@
 
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
 

@@ -106,9 +106,11 @@ public class AdapterMonAn extends RecyclerView.Adapter<AdapterMonAn.ViewHolderMo
                 }
 
                 DatMonModel datMonModel = new DatMonModel();
+                datMonModel.setMamon(monAnModel.getMamon());
                 datMonModel.setTenmonan(monAnModel.getTenmon());
                 datMonModel.setGiatien(monAnModel.getGiatien());
                 datMonModel.setSoluong(dem);
+                datMonModel.setLinkhinh(linkhinh);
 
                 // Set tag vào nút giảm số lượng để loại bỏ món ăn khỏi list khi số lượng = 0
                 holder.imgGiamSoLuong.setTag(datMonModel);

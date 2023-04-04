@@ -227,7 +227,6 @@ public class DangNhapSDTActivity extends AppCompatActivity implements View.OnCli
                 .build();
 
         PhoneAuthProvider.verifyPhoneNumber(options);
-        Log.d("kiemtrasendotp", storedForceResendingToken + "");
     }
 
     public void reSendOTP () {

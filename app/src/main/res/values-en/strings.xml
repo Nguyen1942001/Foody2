@@ -101,6 +101,7 @@
     <string name="lichsudonhang">Orders history</string>
     <string name="chinhsach">User Policy</string>
     <string name="ngonngu">Language</string>
+    <string name="thongke">Stalistic</string>
     <string name="dangxuat">Log out</string>
     <string name="khongnhapduthongtin">Please enter full information</string>
     <string name="capnhatthanhcong">Successfully updated personal information</string>
@@ -179,5 +180,23 @@
     <string name="tongtien">Total Price</string>
     <string name="dagiao">Deliveried</string>
     <string name="datlai">Re-order</string>
+
+    <!--  Chi tiết lịch sử đơn hàng  -->
+    <string name="donhang">Order</string>
+    <string name="trangthai">DELIVERED TO CUSTOMER</string>
+    <string name="camon1">Thank you for giving Foody the opportunity to serve.</string>
+    <string name="camon2">Foody knows you have many choices, thanks for choosing Foody today.</string>
+    <string name="chiasecamnhan">Share your feelings</string>
+    <string name="madon">Code orders</string>
+    <string name="noimuahang">Restaurant address</string>
+    <string name="noigiaohang">Delivery address</string>
+
+    <!--  Thống kê  -->
+    <string name="thoigian">Year</string>
+    <string name="thanhvien">Members</string>
+    <string name="quanan">Restaurant</string>
+    <string name="bieudocot">Bar Chart</string>
+    <string name="bieudotron">Pie Chart</string>
+    <string name="bieudoduong">Line Chart</string>
 
 </resources>

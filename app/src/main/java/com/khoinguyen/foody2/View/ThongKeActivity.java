@@ -3,13 +3,16 @@ package com.khoinguyen.foody2.View;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -202,7 +205,7 @@ public class ThongKeActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 String[] items = {"Không", "SL đơn hàng"};
-                ArrayAdapter<String> adapterDonHang = new ArrayAdapter<String>(ThongKeActivity.this, R.layout.spinner_item, items);
+                ArrayAdapter<String> adapterDonHang = new ArrayAdapter<String>(ThongKeActivity.this, android.R.layout.simple_list_item_1, items);
                 spinnerDonHang.setAdapter(adapterDonHang);
                 adapterDonHang.notifyDataSetChanged();
 
@@ -228,7 +231,7 @@ public class ThongKeActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 String[] items = {"Không", "SL thành viên"};
-                ArrayAdapter<String> adapterThanhVien = new ArrayAdapter<String>(ThongKeActivity.this, R.layout.spinner_item, items);
+                ArrayAdapter<String> adapterThanhVien = new ArrayAdapter<String>(ThongKeActivity.this, android.R.layout.simple_list_item_1, items);
                 spinnerThanhVien.setAdapter(adapterThanhVien);
                 adapterThanhVien.notifyDataSetChanged();
 

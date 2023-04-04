@@ -160,6 +160,11 @@ public class TrangChuActivity extends AppCompatActivity implements ViewPager.OnP
                         startActivity(iNgonNgu);
                         break;
 
+                    case R.id.mn_stalistic:
+                        Intent iThongKe = new Intent(TrangChuActivity.this, ThongKeActivity.class);
+                        startActivity(iThongKe);
+                        break;
+
                     case R.id.mn_log_out:
                         FirebaseAuth.getInstance().signOut();
                         Intent iDangNhap = new Intent(TrangChuActivity.this, DangNhapActivity.class);

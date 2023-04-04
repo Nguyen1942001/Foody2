@@ -17,6 +17,10 @@
         android:icon="@drawable/icon_language_24"
         android:title="@string/ngonngu"/>
 
+    <item android:id="@+id/mn_stalistic"
+        android:icon="@drawable/icon_chart_24"
+        android:title="@string/thongke"/>
+
     <item android:id="@+id/mn_log_out"
         android:icon="@drawable/icon_logout_24"
         android:title="@string/dangxuat"/>

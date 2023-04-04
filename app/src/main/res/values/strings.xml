@@ -101,6 +101,7 @@
     <string name="lichsudonhang">Lịch sử đơn hàng</string>
     <string name="chinhsach">Chính sách quy định</string>
     <string name="ngonngu">Ngôn ngữ</string>
+    <string name="thongke">Thống kê</string>
     <string name="dangxuat">Đăng xuất</string>
     <string name="khongnhapduthongtin">Vui lòng nhập đầy đủ thông tin</string>
     <string name="capnhatthanhcong">Cập nhật thông tin cá nhân thành công</string>
@@ -181,5 +182,22 @@
     <string name="dagiao">Đã giao</string>
     <string name="datlai">Đặt lại</string>
 
+<!--  Chi tiết lịch sử đơn hàng  -->
+    <string name="donhang">Đơn hàng</string>
+    <string name="trangthai">ĐÃ ĐẾN TAY NGƯỜI NHẬN</string>
+    <string name="camon1">Cảm ơn bạn đã cho Foody cơ hội được phục vụ.</string>
+    <string name="camon2">Foody biết bạn có nhiều sự lựa chọn, cảm ơn vì đã chọn Foody ngày hôm nay.</string>
+    <string name="chiasecamnhan">Chia sẻ cảm nhận</string>
+    <string name="madon">Mã đơn</string>
+    <string name="noimuahang">Nơi mua hàng</string>
+    <string name="noigiaohang">Nơi giao hàng</string>
+
+<!--  Thống kê  -->
+    <string name="thoigian">Thời gian</string>
+    <string name="thanhvien">Thành viên</string>
+    <string name="quanan">Quán ăn</string>
+    <string name="bieudocot">Biểu đồ cột</string>
+    <string name="bieudotron">Biểu đồ tròn</string>
+    <string name="bieudoduong">Biểu đồ đường</string>
 
 </resources>

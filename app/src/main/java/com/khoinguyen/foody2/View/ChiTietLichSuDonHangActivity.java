@@ -79,8 +79,8 @@ public class ChiTietLichSuDonHangActivity extends AppCompatActivity {
         Locale locale = new Locale("vi", "VN");
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
 
-        tvMaDonHang.setText("Đơn hàng " + donHangModel.getMadonhang());
-        tvMaDonHang2.setText("Mã đơn " + donHangModel.getMadonhang());
+        tvMaDonHang.setText(getString(R.string.donhang) + " " + donHangModel.getMadonhang());
+        tvMaDonHang2.setText(getString(R.string.madon) + " " + donHangModel.getMadonhang());
         tvTenQuanAn.setText(donHangModel.getTenquanan());
         tvDiaChiQuanAn.setText(donHangModel.getDiachiquanan());
         tvTenQuanAn2.setText(donHangModel.getTenquanan());

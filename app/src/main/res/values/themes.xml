@@ -27,8 +27,4 @@
         <item name="android:buttonTint">@color/colorCheckBoxAndRadioButton</item>
     </style>
 
-
-
-
-
 </resources>

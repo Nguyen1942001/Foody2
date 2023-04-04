@@ -83,7 +83,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
-                            android:text="ĐÃ ĐẾN TAY NGƯỜI NHẬN"
+                            android:text="@string/trangthai"
                             android:textColor="#000"
                             android:textSize="22sp"
                             android:textStyle="bold" />
@@ -93,7 +93,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
-                            android:text="Cảm ơn bạn đã cho Foody cơ hội được phục vụ."
+                            android:text="@string/camon1"
                             android:textColor="#000"
                             android:textSize="16sp" />
 
@@ -102,9 +102,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:layout_marginRight="40dp"
-                            android:text="Foody biết bạn có nhiều sự lựa chọn, cảm ơn vì đã chọn Foody ngày hôm nay."
+                            android:text="@string/camon2"
                             android:textColor="#000"
-                            android:textSize="16dp"
+                            android:textSize="16sp"
                             />
 
                     </LinearLayout>
@@ -150,7 +150,7 @@
                                 android:id="@+id/btnReview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
-                                android:text="Chia sẻ cảm nhận"
+                                android:text="@string/chiasecamnhan"
                                 android:textSize="12sp"
                                 android:textStyle="bold"
                                 android:textAllCaps="false"
@@ -213,7 +213,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Nơi mua hàng"
+                                    android:text="@string/noimuahang"
                                     android:textColor="#000"
                                     android:textSize="18sp"/>
 
@@ -263,7 +263,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Nơi giao hàng"
+                                    android:text="@string/noigiaohang"
                                     android:textColor="#000"
                                     android:textSize="18sp"/>
 
@@ -339,7 +339,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/custom_button_datlai_chitietlichsudonhang"
                 android:padding="20dp"
-                android:text="Đặt lại"
+                android:text="@string/datlai"
                 android:textColor="#fff"
                 android:textSize="18sp"
                 android:textAllCaps="false">

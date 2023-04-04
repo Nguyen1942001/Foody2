@@ -22,7 +22,7 @@
                 android:id="@+id/tvMaDonHang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thống kê"
+                android:text="@string/thongke"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:gravity="center"
@@ -54,7 +54,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thời gian"
+                android:text="@string/thoigian"
                 android:textSize="20sp"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -84,7 +84,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thành viên"
+                android:text="@string/thanhvien"
                 android:textSize="20sp"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -114,7 +114,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Đơn hàng"
+                android:text="@string/donhang"
                 android:textSize="20sp"
                 android:layout_weight="1"
                 android:textStyle="bold"
@@ -143,7 +143,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Quán ăn"
+                android:text="@string/quanan"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:paddingLeft="15dp"
@@ -172,18 +172,20 @@
 
         <Button
             android:id="@+id/btnBarChart"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:text="Bar Chart"
+            android:text="@string/bieudocot"
+            android:textAllCaps="false"
             android:textSize="20sp"
             android:padding="15dp"
             />
 
         <Button
             android:id="@+id/btnPieChart"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:text="Pie Chart"
+            android:text="@string/bieudotron"
+            android:textAllCaps="false"
             android:textSize="20sp"
             android:padding="15dp"
             android:layout_marginBottom="50dp"
@@ -192,9 +194,10 @@
 
         <Button
             android:id="@+id/btnLineChart"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:text="Line Chart"
+            android:text="@string/bieudoduong"
+            android:textAllCaps="false"
             android:textSize="20sp"
             android:padding="15dp"
             />

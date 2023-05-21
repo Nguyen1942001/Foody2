@@ -179,7 +179,7 @@
 <!--  Lịch sử đơn hàng  -->
     <string name="tongtien">Total Price</string>
     <string name="dagiao">Deliveried</string>
-    <string name="datlai">Re-order</string>
+    <string name="xemdonhang">View detail</string>
 
     <!--  Chi tiết lịch sử đơn hàng  -->
     <string name="donhang">Order</string>
@@ -190,6 +190,7 @@
     <string name="madon">Code orders</string>
     <string name="noimuahang">Restaurant address</string>
     <string name="noigiaohang">Delivery address</string>
+    <string name="datlai">Re-Order</string>
 
     <!--  Thống kê  -->
     <string name="thoigian">Year</string>

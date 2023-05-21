@@ -44,7 +44,7 @@ public class AdapterLichSuDonHang extends RecyclerView.Adapter<AdapterLichSuDonH
         LinearLayout khungDonHang;
         ImageView imgQuanAn;
         TextView tvTenQuanAn, tvTongTien;
-        Button btnDatLai;
+        Button btnXemDonHang;
 
         public ViewHolderLichSuDonHang(@NonNull View itemView) {
             super(itemView);
@@ -53,7 +53,7 @@ public class AdapterLichSuDonHang extends RecyclerView.Adapter<AdapterLichSuDonH
             imgQuanAn = itemView.findViewById(R.id.imgQuanAn);
             tvTenQuanAn = itemView.findViewById(R.id.tvTenQuanAn);
             tvTongTien = itemView.findViewById(R.id.tvTongTien);
-            btnDatLai = itemView.findViewById(R.id.btnDatLai);
+            btnXemDonHang = itemView.findViewById(R.id.btnXemDonHang);
         }
     }
 
@@ -88,8 +88,6 @@ public class AdapterLichSuDonHang extends RecyclerView.Adapter<AdapterLichSuDonH
                 context.startActivity(iChiTietLichSuDonHang);
             }
         });
-
-
     }
 
     @Override
@@ -111,6 +109,4 @@ public class AdapterLichSuDonHang extends RecyclerView.Adapter<AdapterLichSuDonH
             }
         });
     }
-
-
 }

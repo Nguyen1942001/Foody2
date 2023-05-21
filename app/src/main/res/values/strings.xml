@@ -180,7 +180,7 @@
     <!--  Lịch sử đơn hàng  -->
     <string name="tongtien">Tổng tiền</string>
     <string name="dagiao">Đã giao</string>
-    <string name="datlai">Đặt lại</string>
+    <string name="xemdonhang">Xem chi tiết</string>
 
 <!--  Chi tiết lịch sử đơn hàng  -->
     <string name="donhang">Đơn hàng</string>
@@ -191,6 +191,7 @@
     <string name="madon">Mã đơn</string>
     <string name="noimuahang">Nơi mua hàng</string>
     <string name="noigiaohang">Nơi giao hàng</string>
+    <string name="datlai">Đặt lại</string>
 
 <!--  Thống kê  -->
     <string name="thoigian">Thời gian</string>

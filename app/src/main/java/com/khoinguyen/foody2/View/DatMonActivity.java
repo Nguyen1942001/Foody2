@@ -6,9 +6,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,14 +31,17 @@ import com.khoinguyen.foody2.Adapters.AdapterDatMon;
 import com.khoinguyen.foody2.Adapters.AdapterMonAn;
 import com.khoinguyen.foody2.Model.DatMonModel;
 import com.khoinguyen.foody2.Model.DonHangModel;
+import com.khoinguyen.foody2.Model.KhuyenMaiModel;
 import com.khoinguyen.foody2.Model.QuanAnModel;
 import com.khoinguyen.foody2.Model.ThanhVienModel;
 import com.khoinguyen.foody2.R;
 
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,6 +50,7 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
     EditText editDiaChiGiaoHang, editSDTNhanHang;
     TextView txtTongSoLuongSanPham, txtTongTienTruoc, txtTongTienSau, txtTieuDeToolbar,
             txtTongTienMat, txtTongTienOnline;
+    Spinner spinnerKhuyenMai;
     RecyclerView recyclerMonAnDuocDat;
     Toolbar toolbar;
     LinearLayout linearOnline, linearCash;
@@ -53,10 +60,12 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
     ThanhVienModel thanhVienModel;
     QuanAnModel quanAnModel;  // Bên ChiTietQuanAnActivity gửi qua
     String diachiquanan;  // Địa chỉ quán ăn mà khách chọn để đặt đơn hàng
+    List<KhuyenMaiModel> listKhuyenMai;
 
     int phuongthucthanhtoan = 0; // thanh toán bằng tiền mặt
     int tongSLSanPham = 0;
     long tongGiaTriSanPham = 0;
+    long tongGiaSauKhuyenMai = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,6 +77,7 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
         txtTongSoLuongSanPham = findViewById(R.id.txtTongSoLuongSanPham);
         txtTongTienTruoc = findViewById(R.id.txtTongTienTruoc);
         txtTongTienSau = findViewById(R.id.txtTongTienSau);
+        spinnerKhuyenMai = findViewById(R.id.spinnerKhuyenMai);
         recyclerMonAnDuocDat = findViewById(R.id.recyclerMonAnDuocDat);
         toolbar = findViewById(R.id.toolbar);
         txtTieuDeToolbar = findViewById(R.id.txtTieuDeToolbar);
@@ -82,6 +92,7 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
         btnThanhToan.setOnClickListener(this);
 
         thanhVienModel = new ThanhVienModel();
+        listKhuyenMai = new ArrayList<>();
 
         sharedPreferences = getSharedPreferences("luudangnhap", MODE_PRIVATE);
 
@@ -89,6 +100,7 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
         diachiquanan = getIntent().getStringExtra("diachiquanan");
 
         LayThongTinUser();
+        LayDanhSachKhuyenMai();
 
         // Toolbar
         toolbar.setTitle("");
@@ -100,16 +112,45 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
 
         LayThongTinDonHang();
 
+        spinnerKhuyenMai.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            // Định dạng tiền Việt Nam
+            final Locale locale = new Locale("vi", "VN");
+            final NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i != 0) {
+                    int giamgia = listKhuyenMai.get(i - 1).getGiamGia();
+
+                    if (giamgia < 100) {
+                        tongGiaSauKhuyenMai = tongGiaTriSanPham - (tongGiaTriSanPham * giamgia / 100) + 3000;
+                        txtTongTienSau.setText(numberFormat.format(tongGiaSauKhuyenMai));
+                    } else {
+                        tongGiaSauKhuyenMai = tongGiaTriSanPham - giamgia + 3000;
+                        txtTongTienSau.setText(numberFormat.format(tongGiaSauKhuyenMai));
+                    }
+                } else {
+                    txtTongTienSau.setText(numberFormat.format((tongGiaTriSanPham + 3000)));
+                    tongGiaSauKhuyenMai = 0;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
 
-    private void LayThongTinMonAnDuocDat () {
+    private void LayThongTinMonAnDuocDat() {
         recyclerMonAnDuocDat.setLayoutManager(new LinearLayoutManager(this));
         AdapterDatMon adapterDatMon = new AdapterDatMon(this, R.layout.layout_datmon, datMonModelList);
         recyclerMonAnDuocDat.setAdapter(adapterDatMon);
         adapterDatMon.notifyDataSetChanged();
     }
 
-    private void LayThongTinDonHang () {
+    private void LayThongTinDonHang() {
         // Định dạng tiền Việt Nam
         Locale locale = new Locale("vi", "VN");
         NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
@@ -131,7 +172,7 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
         txtTongTienOnline.setText(numberFormat.format((tongGiaTriSanPham + 3000)));
     }
 
-    private void LuuThongTinDonHang () {
+    private void LuuThongTinDonHang() {
         DatabaseReference nodeRoot = FirebaseDatabase.getInstance().getReference();
 
         Calendar calendar = Calendar.getInstance();
@@ -141,8 +182,7 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
         String mauser = sharedPreferences.getString("mauser", "");
         String diachi = editDiaChiGiaoHang.getText().toString();
         String sodienthoai = editSDTNhanHang.getText().toString();
-        long tongtien = tongGiaTriSanPham;
-        List<DatMonModel> danhsachmonan = new ArrayList<>();
+        long tongtien = tongGiaSauKhuyenMai == 0 ? tongGiaTriSanPham : tongGiaSauKhuyenMai;
 
         if (datMonModelList.size() == 0) {
             Toast.makeText(this, getString(R.string.thongbaochonmon), Toast.LENGTH_LONG).show();
@@ -186,11 +226,16 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
         if (thanhVienModel.getDanhsachdonhang().size() > 0) {
             thanhVienModel.getDanhsachdonhang().add(madonhang);
             thanhVienModel.setDanhsachdonhang(thanhVienModel.getDanhsachdonhang());
-        }
-        else {
+        } else {
             thanhVienModel.getDanhsachdonhang().add(madonhang);
         }
         nodeRoot.child("thanhviens").child(mauser).setValue(thanhVienModel);
+
+
+        // Cập nhật lại số lượt sử dụng mã khuyến mãi (Trừ 1 lượt sử dụng)
+        KhuyenMaiModel khuyenMaiModel = listKhuyenMai.get(spinnerKhuyenMai.getSelectedItemPosition() - 1);
+        khuyenMaiModel.setLuotsudung(khuyenMaiModel.getLuotsudung() - 1);
+        nodeRoot.child("khuyenmais").child(khuyenMaiModel.getMakhuyenmai()).setValue(khuyenMaiModel);
 
         // Clear dữ liệu
         datMonModelList.clear();
@@ -235,7 +280,7 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private void LayThongTinUser () {
+    private void LayThongTinUser() {
         String uid = sharedPreferences.getString("mauser", "");
         FirebaseDatabase.getInstance().getReference().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -254,5 +299,64 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
 
             }
         });
+    }
+
+    private void LayDanhSachKhuyenMai() {
+        // Định dạng tiền Việt Nam
+        Locale locale = new Locale("vi", "VN");
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+
+        FirebaseDatabase.getInstance().getReference().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                DataSnapshot dataKhuyenMai = dataSnapshot.child("khuyenmais");
+                for (DataSnapshot valueKhuyenMai : dataKhuyenMai.getChildren()) {
+                    KhuyenMaiModel khuyenMaiModel = valueKhuyenMai.getValue(KhuyenMaiModel.class);
+                    khuyenMaiModel.setMakhuyenmai(valueKhuyenMai.getKey());
+
+                    if (KiemTraThoiHanKhuyenMai(khuyenMaiModel.getNgayketthuc()) && khuyenMaiModel.getLuotsudung() > 0) {
+                        listKhuyenMai.add(khuyenMaiModel);
+                    }
+                }
+
+                List<String> tenkhuyenmai = new ArrayList<>();
+                tenkhuyenmai.add("Không");
+                for (KhuyenMaiModel khuyenMaiModel : listKhuyenMai) {
+                    int giamgia = khuyenMaiModel.getGiamGia();
+                    if (giamgia < 100) {
+                        tenkhuyenmai.add("Giảm " + giamgia + "%");
+                    } else {
+                        tenkhuyenmai.add("Giảm " + numberFormat.format(giamgia));
+                    }
+                }
+
+                ArrayAdapter<String> adapterKhuyenMai = new ArrayAdapter<String>(DatMonActivity.this, android.R.layout.simple_list_item_1, tenkhuyenmai);
+                spinnerKhuyenMai.setAdapter(adapterKhuyenMai);
+                adapterKhuyenMai.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private boolean KiemTraThoiHanKhuyenMai(String ngayketthuc) {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+        try {
+            Date date = format.parse(ngayketthuc);
+            Date today = new Date();
+
+            // Còn hạn khuyến mãi
+            if (date.equals(today) || date.after(today)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (ParseException e) {
+            return false;
+        }
     }
 }

@@ -181,6 +181,45 @@
                     android:background="@color/colorBackgroundTrangChu"
                     />
 
+                <!--   Spinner khuyến mãi     -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Khuyến mãi"
+                        android:textSize="20sp"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        />
+
+                    <Spinner
+                        android:id="@+id/spinnerKhuyenMai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/ThemeOverlay.AppCompat.Light"
+                        android:enabled="true"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorBackgroundTrangChu"
+                    />
+
+                <!--      Tổng cộng     -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -218,13 +257,9 @@
 
                 <include layout="@layout/layout_phuongthucthanhtoan" />
 
-
-
-
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
-
 
         <Button
             android:id="@+id/btnThanhToan"

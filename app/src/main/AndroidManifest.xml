@@ -69,7 +69,7 @@
 
         </activity>
 
-        <activity android:name=".View.DatMonActivity">
+        <activity android:name=".View.DatMonActivity" android:exported="true">
 
         </activity>
 

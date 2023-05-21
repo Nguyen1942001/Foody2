@@ -140,6 +140,10 @@ public class ChiTietQuanAnActivity extends AppCompatActivity implements OnMapRea
         // Lấy dữ liệu intent gửi qua từ trang chủ (gửi object QuanAnModel)
         quanAnModel = getIntent().getParcelableExtra("quanan");
 
+        if (quanAnModel == null) {
+            quanAnModel = getIntent().getParcelableExtra("datLaiQuanAn");
+        }
+
         chiTietQuanAnController = new ChiTietQuanAnController();
         thucDonController = new ThucDonController();
 

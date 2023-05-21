@@ -203,6 +203,7 @@
                                 android:background="@drawable/icon_restaurant_24" />
 
                             <LinearLayout
+                                android:id="@+id/noiMuaHang"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"

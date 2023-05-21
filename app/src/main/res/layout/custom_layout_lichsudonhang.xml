@@ -53,12 +53,12 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnDatLai"
-        android:layout_width="100dp"
+        android:id="@+id/btnXemDonHang"
+        android:layout_width="110dp"
         android:layout_height="20dp"
         android:background="@drawable/custom_button_datlaimon"
         android:drawableLeft="@drawable/baseline_refresh_24"
-        android:text="@string/datlai"
+        android:text="@string/xemdonhang"
         android:textAllCaps="false"
         android:textColor="#FDF9F9"
         android:textSize="13sp"

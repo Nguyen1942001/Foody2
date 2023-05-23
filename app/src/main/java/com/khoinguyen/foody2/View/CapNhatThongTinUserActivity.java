@@ -95,8 +95,9 @@ public class CapNhatThongTinUserActivity extends AppCompatActivity {
         String userID = sharedPreferences.getString("mauser", "");
         String hoten = edHoTen.getText().toString();
         String diachigiaohang = edDiaChiGiaoHang.getText().toString();
+        String sdt = edSDT.getText().toString();
 
-        if (hoten.length() == 0 && diachigiaohang.length() == 0) {
+        if (hoten.length() == 0 && diachigiaohang.length() == 0 && sdt.length() < 10) {
             Toast.makeText(this, getString(R.string.khongnhapduthongtin), Toast.LENGTH_SHORT).show();
             return;
         }
@@ -112,17 +113,17 @@ public class CapNhatThongTinUserActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                     if (task.isSuccessful()) {
-                        UpdateInfoToFirebase(userID, hoten, diachigiaohang, avatarURI);
+                        UpdateInfoToFirebase(userID, sdt, hoten, diachigiaohang, avatarURI);
                     }
                 }
             });
         }
         else {
-            UpdateInfoToFirebase(userID, hoten, diachigiaohang, null);
+            UpdateInfoToFirebase(userID, sdt, hoten, diachigiaohang, null);
         }
     }
 
-    private void UpdateInfoToFirebase (String userID, String hoten, String diachigiaohang, Uri avatarURI) {
+    private void UpdateInfoToFirebase (String userID, String sdt, String hoten, String diachigiaohang, Uri avatarURI) {
         UserProfileChangeRequest userProfileChangeRequest;
 
         if (avatarURI != null) {
@@ -139,6 +140,7 @@ public class CapNhatThongTinUserActivity extends AppCompatActivity {
                     .build();
         }
 
+        thanhVienModel.setSodienthoai(sdt);
         thanhVienModel.setHoten(hoten);
         thanhVienModel.setDiachi(diachigiaohang);
         FirebaseDatabase.getInstance().getReference().child("thanhviens").child(userID).setValue(thanhVienModel);

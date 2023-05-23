@@ -233,9 +233,11 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
 
 
         // Cập nhật lại số lượt sử dụng mã khuyến mãi (Trừ 1 lượt sử dụng)
-        KhuyenMaiModel khuyenMaiModel = listKhuyenMai.get(spinnerKhuyenMai.getSelectedItemPosition() - 1);
-        khuyenMaiModel.setLuotsudung(khuyenMaiModel.getLuotsudung() - 1);
-        nodeRoot.child("khuyenmais").child(khuyenMaiModel.getMakhuyenmai()).setValue(khuyenMaiModel);
+        if (spinnerKhuyenMai.getSelectedItemPosition() > 0) {
+            KhuyenMaiModel khuyenMaiModel = listKhuyenMai.get(spinnerKhuyenMai.getSelectedItemPosition() - 1);
+            khuyenMaiModel.setLuotsudung(khuyenMaiModel.getLuotsudung() - 1);
+            nodeRoot.child("khuyenmais").child(khuyenMaiModel.getMakhuyenmai()).setValue(khuyenMaiModel);
+        }
 
         // Clear dữ liệu
         datMonModelList.clear();

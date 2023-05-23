@@ -1,8 +1,10 @@
 package com.khoinguyen.foody2.View;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,6 +54,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.khoinguyen.foody2.Controller.DangKyController;
+import com.khoinguyen.foody2.Model.BinhLuanModel;
+import com.khoinguyen.foody2.Model.ChiNhanhQuanAnModel;
 import com.khoinguyen.foody2.Model.QuanAnModel;
 import com.khoinguyen.foody2.Model.ThanhVienModel;
 import com.khoinguyen.foody2.R;
@@ -309,8 +313,16 @@ public class DangNhapActivity extends AppCompatActivity implements GoogleApiClie
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
         if (user != null) {
+            // Kiểm tra tk google và fb đã được đăng nhập trước đó chưa
+            checkUserExist(user.getUid());
+
             // Đăng nhập google
             if (KIEMTRA_PROVIDER_DANGNHAP == 1) {
+                if (thanhVienModelExist != null) {
+                    Intent iTrangChu = new Intent(DangNhapActivity.this, TrangChuActivity.class);
+                    startActivity(iTrangChu);
+                    return;
+                }
                 thanhVienModel.setHoten("");
                 thanhVienModel.setHinhanh("user.png");
                 thanhVienModel.setEmail(accountGoogle.getEmail());
@@ -323,6 +335,12 @@ public class DangNhapActivity extends AppCompatActivity implements GoogleApiClie
 
             // Đăng nhập facebook
             else if (KIEMTRA_PROVIDER_DANGNHAP == 2) {
+                if (thanhVienModelExist != null) {
+                    Intent iTrangChu = new Intent(DangNhapActivity.this, TrangChuActivity.class);
+                    startActivity(iTrangChu);
+                    return;
+                }
+
                 thanhVienModel.setHoten(user.getDisplayName());
                 thanhVienModel.setHinhanh("user.png");
                 thanhVienModel.setEmail(user.getEmail());
@@ -340,6 +358,26 @@ public class DangNhapActivity extends AppCompatActivity implements GoogleApiClie
             Intent iTrangChu = new Intent(DangNhapActivity.this, TrangChuActivity.class);
             startActivity(iTrangChu);
         }
+    }
+
+    ThanhVienModel thanhVienModelExist = new ThanhVienModel();
+    private void checkUserExist(String uid) {
+        FirebaseDatabase.getInstance().getReference().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                DataSnapshot dataThanhVien = dataSnapshot.child("thanhviens");
+                for (DataSnapshot valueThanhVien : dataThanhVien.getChildren()) {
+                    if (valueThanhVien.getKey().compareTo(uid) == 0) {
+                        thanhVienModelExist = valueThanhVien.getValue(ThanhVienModel.class);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void changeLanguage (String language) {

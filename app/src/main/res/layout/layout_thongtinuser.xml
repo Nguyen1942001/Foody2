@@ -35,11 +35,11 @@
         android:layout_height="wrap_content"
         android:hint="@string/sodienthoai"
         android:textSize="20sp"
+        android:maxLength="10"
         android:padding="25px"
         android:layout_marginBottom="10dp"
         android:drawableLeft="@drawable/icon_phone_iphone_24"
         android:drawablePadding="10dp"
-        android:editable="false"
         android:textColor="#A39D9D"
         />
 

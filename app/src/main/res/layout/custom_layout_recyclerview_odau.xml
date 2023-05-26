@@ -55,13 +55,28 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtKhoangCachQuanAnOdau"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="8.6km"
-                android:gravity="bottom"
-                />
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:id="@+id/imgStar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/star_15"
+                    />
+
+                <TextView
+                    android:id="@+id/txtKhoangCachQuanAnOdau"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="8.6km"
+                    android:gravity="bottom"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
 

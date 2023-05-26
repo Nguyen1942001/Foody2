@@ -48,7 +48,7 @@ public class AdapterRecyclerOdau extends RecyclerView.Adapter<AdapterRecyclerOda
                 txtNoiDungBinhLuan2, txtChamDiemBinhLuan, txtChamDiemBinhLuan2, txtTongBinhLuan,
                 txtTongHinhBinhLuan, txtDiemTrungBinhQuanAn,  txtDiaChiQuanAnOdau, txtKhoangCachQuanAnOdau;
         Button btnDatMonOdau;
-        ImageView imageHinhQuanAnOdau;
+        ImageView imageHinhQuanAnOdau, imgStar;
         CircleImageView circleImageUser, circleImageUser2;
         LinearLayout containerBinhLuan, containerBinhLuan2;
         CardView cardViewOdau;
@@ -73,6 +73,7 @@ public class AdapterRecyclerOdau extends RecyclerView.Adapter<AdapterRecyclerOda
             txtTongHinhBinhLuan = itemView.findViewById(R.id.txtTongHinhBinhLuan);
             txtDiemTrungBinhQuanAn = itemView.findViewById(R.id.txtDiemTrungBinhQuanAn);
             txtDiaChiQuanAnOdau = itemView.findViewById(R.id.txtDiaChiQuanAnOdau);
+            imgStar = itemView.findViewById(R.id.imgStar);
             txtKhoangCachQuanAnOdau = itemView.findViewById(R.id.txtKhoangCachQuanAnOdau);
             cardViewOdau = itemView.findViewById(R.id.cardViewOdau);
         }
@@ -138,11 +139,16 @@ public class AdapterRecyclerOdau extends RecyclerView.Adapter<AdapterRecyclerOda
             double diemTrungBinh = tongDiem / quanAnModel.getBinhLuanModelList().size();
             holder.txtDiemTrungBinhQuanAn.setText(String.format("%.1f", diemTrungBinh));
 
+            if (diemTrungBinh < 8.5) {
+                holder.imgStar.setVisibility(View.GONE);
+            }
+
         }
         else {
             // Ẩn bình luận mẫu khi quán ăn không có bình luận
             holder.containerBinhLuan.setVisibility(View.GONE);
             holder.containerBinhLuan2.setVisibility(View.GONE);
+            holder.imgStar.setVisibility(View.GONE);
         }
 
 

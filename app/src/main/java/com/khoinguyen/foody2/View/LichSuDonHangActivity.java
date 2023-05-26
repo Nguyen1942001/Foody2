@@ -3,6 +3,8 @@ package com.khoinguyen.foody2.View;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,6 +29,7 @@ import java.util.List;
 public class LichSuDonHangActivity extends AppCompatActivity {
 
     RecyclerView recyclerLichSuDonHang;
+    ProgressBar progressBar;
     List<DonHangModel> donHangModelList;
     ThanhVienModel thanhVienModel;
 
@@ -36,16 +39,22 @@ public class LichSuDonHangActivity extends AppCompatActivity {
         setContentView(R.layout.layout_lichsudonhang);
 
         recyclerLichSuDonHang = findViewById(R.id.recyclerLichSuDonHang);
+        progressBar = findViewById(R.id.progressBar);
 
         donHangModelList = new ArrayList<>();
 
         thanhVienModel = getIntent().getParcelableExtra("thanhvien");
 
+        progressBar.setVisibility(View.VISIBLE);
         LayThongTinDonHang();
     }
 
     private void LayThongTinDonHang() {
         if (thanhVienModel.getDanhsachdonhang().size() > 0) {
+            recyclerLichSuDonHang.setLayoutManager(new LinearLayoutManager(LichSuDonHangActivity.this));
+            AdapterLichSuDonHang adapterLichSuDonHang = new AdapterLichSuDonHang(LichSuDonHangActivity.this, R.layout.layout_lichsudonhang, donHangModelList);
+            recyclerLichSuDonHang.setAdapter(adapterLichSuDonHang);
+
             FirebaseDatabase.getInstance().getReference().addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -56,16 +65,11 @@ public class LichSuDonHangActivity extends AppCompatActivity {
                             if (madonhang.compareTo(valueDonHang.getKey()) == 0) {
                                 DonHangModel donHangModel = valueDonHang.getValue(DonHangModel.class);
                                 donHangModelList.add(donHangModel);
-
-                                recyclerLichSuDonHang.setLayoutManager(new LinearLayoutManager(LichSuDonHangActivity.this));
-                                AdapterLichSuDonHang adapterLichSuDonHang = new AdapterLichSuDonHang(LichSuDonHangActivity.this, R.layout.layout_lichsudonhang, donHangModelList);
-                                recyclerLichSuDonHang.setAdapter(adapterLichSuDonHang);
-                                adapterLichSuDonHang.notifyDataSetChanged();
                             }
                         }
                     }
-
-
+                    adapterLichSuDonHang.notifyDataSetChanged();
+                    progressBar.setVisibility(View.GONE);
                 }
 
                 @Override

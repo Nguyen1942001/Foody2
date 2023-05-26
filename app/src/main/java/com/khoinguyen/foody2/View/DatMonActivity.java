@@ -36,6 +36,7 @@ import com.khoinguyen.foody2.Model.QuanAnModel;
 import com.khoinguyen.foody2.Model.ThanhVienModel;
 import com.khoinguyen.foody2.R;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -108,9 +109,8 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        LayThongTinMonAnDuocDat();
-
         LayThongTinDonHang();
+        LayThongTinMonAnDuocDat();
 
         spinnerKhuyenMai.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             // Định dạng tiền Việt Nam
@@ -119,19 +119,41 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String tongTienTruocCleaned = txtTongTienTruoc.getText().toString().replaceAll("[^\\d.]", "");
+                DecimalFormat decimalFormat = new DecimalFormat("#,###");
+                try {
+                    // Chuyển đổi chuỗi thành số sử dụng DecimalFormat
+                    Number tongTienTruocNumber = decimalFormat.parse(tongTienTruocCleaned);
+
+                    // Lấy giá trị kiểu long từ số đã chuyển đổi
+                    tongGiaTriSanPham = tongTienTruocNumber.longValue();
+                } catch (ParseException e) {
+                    // Xử lý ngoại lệ nếu có lỗi khi chuyển đổi
+                    e.printStackTrace();
+                }
+
                 if (i != 0) {
                     int giamgia = listKhuyenMai.get(i - 1).getGiamGia();
 
                     if (giamgia < 100) {
                         tongGiaSauKhuyenMai = tongGiaTriSanPham - (tongGiaTriSanPham * giamgia / 100) + 3000;
                         txtTongTienSau.setText(numberFormat.format(tongGiaSauKhuyenMai));
+
+                        txtTongTienMat.setText(numberFormat.format(tongGiaSauKhuyenMai));
+                        txtTongTienOnline.setText(numberFormat.format(tongGiaSauKhuyenMai));
                     } else {
                         tongGiaSauKhuyenMai = tongGiaTriSanPham - giamgia + 3000;
                         txtTongTienSau.setText(numberFormat.format(tongGiaSauKhuyenMai));
+
+                        txtTongTienMat.setText(numberFormat.format(tongGiaSauKhuyenMai));
+                        txtTongTienOnline.setText(numberFormat.format(tongGiaSauKhuyenMai));
                     }
                 } else {
                     txtTongTienSau.setText(numberFormat.format((tongGiaTriSanPham + 3000)));
                     tongGiaSauKhuyenMai = 0;
+
+                    txtTongTienMat.setText(numberFormat.format((tongGiaTriSanPham + 3000)));
+                    txtTongTienOnline.setText(numberFormat.format((tongGiaTriSanPham + 3000)));
                 }
             }
 
@@ -145,7 +167,7 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
 
     private void LayThongTinMonAnDuocDat() {
         recyclerMonAnDuocDat.setLayoutManager(new LinearLayoutManager(this));
-        AdapterDatMon adapterDatMon = new AdapterDatMon(this, R.layout.layout_datmon, datMonModelList);
+        AdapterDatMon adapterDatMon = new AdapterDatMon(this, R.layout.layout_datmon, datMonModelList, tongGiaTriSanPham);
         recyclerMonAnDuocDat.setAdapter(adapterDatMon);
         adapterDatMon.notifyDataSetChanged();
     }
@@ -175,6 +197,19 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
     private void LuuThongTinDonHang() {
         DatabaseReference nodeRoot = FirebaseDatabase.getInstance().getReference();
 
+        String tongTienTruocCleaned = txtTongTienTruoc.getText().toString().replaceAll("[^\\d.]", "");
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+        try {
+            // Chuyển đổi chuỗi thành số sử dụng DecimalFormat
+            Number tongTienTruocNumber = decimalFormat.parse(tongTienTruocCleaned);
+
+            // Lấy giá trị kiểu long từ số đã chuyển đổi
+            tongGiaTriSanPham = tongTienTruocNumber.longValue();
+        } catch (ParseException e) {
+            // Xử lý ngoại lệ nếu có lỗi khi chuyển đổi
+            e.printStackTrace();
+        }
+
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String currentDate = dateFormat.format(calendar.getTime());
@@ -190,7 +225,7 @@ public class DatMonActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        if (diachi.length() == 0 || sodienthoai.length() == 0) {
+        if (diachi.length() == 0 || sodienthoai.length() == 0 || sodienthoai.length() < 10) {
             Toast.makeText(this, getString(R.string.thongbaoloidatmon), Toast.LENGTH_SHORT).show();
             return;
         }

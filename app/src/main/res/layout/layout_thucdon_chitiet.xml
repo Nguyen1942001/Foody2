@@ -15,7 +15,7 @@
         android:textStyle="bold"
         />
 
-<!--  Chứa các món ăn trong thực đơn thực đơn  -->
+<!--  Chứa các món ăn trong thực đơn  -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerThucDon"
         android:layout_width="match_parent"
